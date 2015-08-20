@@ -5,25 +5,22 @@
 end
 
 Vagrant.configure("2") do |config|
+  config.vm.box = "palantir/ubuntu1404"
+  config.vm.box_version = ">= 2.0.0, < 3.0.0"
+
+  config.vm.network "private_network", :auto_network => true
+  config.vm.synced_folder ".", "/vagrant", :nfs => true
+
+  config.ssh.forward_agent = true
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
 
-  config.vm.define "ubuntu1404" do |box|
-
-    box.vm.provider "vmware_fusion" do |v|
-      v.vmx["memsize"] = "1024"
-    end
-
-    box.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--memory", 1024]
-    end
-
-    box.vm.box = "palantir/ubuntu1404"
-    box.vm.box_version = ">= 2.0.0, < 3.0.0"
-
-    box.ssh.forward_agent = true
-    box.vm.synced_folder ".", "/vagrant", :nfs => true
+  config.vm.provider "vmware_fusion" do |v|
+    v.vmx["memsize"] = "1024"
   end
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", 1024]
+  end
 end
