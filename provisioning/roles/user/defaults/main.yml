@@ -1,0 +1,6 @@
+---
+users:
+  groups: []
+  removed_users: []
+  default_shell: "/bin/bash"
+  users: []

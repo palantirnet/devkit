@@ -1,0 +1,6 @@
+---
+php_ini_display_errors: "Off"
+php_ini_display_startup_errors: "Off"
+php_ini_error_reporting: -1
+php_ini_log_errors: "On"
+php_ini_memory_limit: 256M

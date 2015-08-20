@@ -1,0 +1,81 @@
+---
+php5_modules:
+  - php5-curl
+  - php5-gd
+  - php5-intl
+  - php5-json
+  - php5-mcrypt
+  - php5-mysql
+  - php5-sqlite
+
+php5_modules_enable:
+  - mcrypt
+
+# Defaults are based on the Open Web Application Security Project
+# for more information, see
+# https://www.owasp.org/index.php/PHP_Configuration_Cheat_Sheet
+
+#[PHP error handling]
+php_ini_expose_php                : "false"
+php_ini_error_reporting           : -1
+php_ini_display_errors            : "Off"
+php_ini_display_startup_errors    : "Off"
+php_ini_log_errors                : "On"
+php_ini_error_log                 : /var/log/apache2/php_error.log
+php_ini_ignore_repeated_errors    : "false"
+
+#[PHP general settings]
+php_ini_date_timezone             : '{{ timezone }}'
+# Composer requires that allow_url_fopen be turned on.
+# https://github.com/composer/composer/blob/d5feea83b6b454a30e41d9b3963620bce03bad4b/src/Composer/Command/DiagnoseCommand.php#L366
+php_ini_allow_url_fopen           : "true"
+php_ini_allow_url_include         : "false"
+php_ini_allow_webdav_methods      : "false"
+
+#[PHP file upload handling]
+php_ini_file_uploads              : "true"
+php_ini_upload_tmp_dir            : ""
+php_ini_max_file_uploads          : 20
+php_ini_upload_max_filesize       : 10M
+
+#[PHP executable handling]
+php_ini_enable_dl                 : "true"
+php_ini_disable_functions         : ""
+php_ini_disable_classes           : ""
+
+#[PHP session handling]
+php_ini_session_auto_start        : "false"
+php_ini_session_save_path         : /tmp
+php_ini_session_name              : myPHPSESSID
+php_ini_session_hash_function     : 1
+php_ini_session_hash_bits_per_character : 6
+php_ini_session_use_trans_sid     : 0
+php_ini_#session_cookie_domain    : full.qualified.domain.name
+php_ini_session_cookie_domain     :
+php_ini_session_cookie_path       : /
+php_ini_session_cookie_lifetime   : 0
+php_ini_session_cookie_secure     : "false"
+php_ini_session_cookie_httponly   : "true"
+php_ini_session_use_only_cookies  : "true"
+php_ini_session_cache_expire      : 30
+php_ini_default_socket_timeout    : 60
+
+#[PHP misc]
+php_ini_mysqlnd_collect_memory_statistics: "false"
+php_ini_sendmail_path             : /bin/false
+php_ini_session_save_path         : /tmp
+
+#[PHP performance]
+php_ini_max_execution_time        : 60
+php_ini_memory_limit              : 256M
+php_ini_max_input_time            : 300
+php_ini_max_input_vars            : 1000
+php_ini_post_max_size             : 10M
+php_ini_track_errors              : "false"
+php_ini_realpath_cache_size       : 64K
+php_ini_realpath_cache_ttl        : 3600
+
+#[Opcache settings]
+php_ini_opcache_enable                : "true"
+php_ini_opcache_memory_consumption    : 128
+php_ini_opcache_max_accelerated_files : 8000

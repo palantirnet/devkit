@@ -1,0 +1,58 @@
+[PHP error Handling]
+expose_php                = {{ php_ini_expose_php }}
+error_reporting           = {{ php_ini_error_reporting }}
+display_errors            = {{ php_ini_display_errors }}
+display_startup_errors    = {{ php_ini_display_startup_errors }}
+log_errors                = {{ php_ini_log_errors }}
+error_log                 = {{ php_ini_error_log }}
+ignore_repeated_errors    = {{ php_ini_ignore_repeated_errors }}
+
+[PHP general settings]
+date.timezone             = {{ php_ini_date_timezone }}
+allow_url_fopen           = {{ php_ini_allow_url_fopen }}
+allow_url_include         = {{ php_ini_allow_url_include }}
+allow_webdav_methods      = {{ php_ini_allow_webdav_methods }}
+
+[PHP file upload handling]
+file_uploads              = {{ php_ini_file_uploads }}
+upload_tmp_dir            = {{ php_ini_upload_tmp_dir }}
+upload_max_filesize       = {{ php_ini_upload_max_filesize }}
+max_file_uploads          = {{ php_ini_max_file_uploads }}
+upload_max_filesize       = {{ php_ini_upload_max_filesize }}
+
+[PHP executable handling]
+enable_dl                 = {{ php_ini_enable_dl }}
+disable_functions         = {{ php_ini_disable_functions }}
+disable_classes           = {{ php_ini_disable_classes }}
+
+[PHP session handling]
+session.auto_start        = {{ php_ini_session_auto_start }}
+session.save_path         = {{ php_ini_session_save_path }}
+session.name              = {{ php_ini_session_name }}
+session.hash_function     = {{ php_ini_session_hash_function }}
+session.hash_bits_per_character = {{ php_ini_session_hash_bits_per_character }}
+session.use_trans_sid     = {{ php_ini_session_use_trans_sid }}
+session.cookie_domain     = {{ php_ini_session_cookie_domain }}
+session.cookie_lifetime   = {{ php_ini_session_cookie_lifetime }}
+session.cookie_secure     = {{ php_ini_session_cookie_secure }}
+session.cookie_httponly   = {{ php_ini_session_cookie_httponly }}
+session.use_only_cookies  = {{ php_ini_session_use_only_cookies }}
+session.cache_expire      = {{ php_ini_session_cache_expire }}
+default_socket_timeout    = {{ php_ini_default_socket_timeout }}
+
+[PHP misc]
+max_execution_time        = {{ php_ini_max_execution_time }}
+max_input_time            = {{ php_ini_max_input_time }}
+max_input_vars            = {{ php_ini_max_input_vars }}
+memory_limit              = {{ php_ini_memory_limit }}
+post_max_size             = {{ php_ini_post_max_size }}
+sendmail_path             = {{ php_ini_sendmail_path }}
+session.save_path         = {{ php_ini_session_save_path }}
+track_errors              = {{ php_ini_track_errors }}
+realpath_cache_size       = {{ php_ini_realpath_cache_size }}
+realpath_cache_ttl        = {{ php_ini_realpath_cache_ttl }}
+
+[Opcache settings]
+opcache.enable                = {{ php_ini_opcache_enable }}
+opcache.memory_consumption    = {{ php_ini_opcache_memory_consumption }}
+opcache.max_accelerated_files = {{ php_ini_opcache_max_accelerated_files }}

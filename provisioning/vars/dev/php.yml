@@ -1,0 +1,3 @@
+---
+php_ini_display_errors         : "On"
+php_ini_display_startup_errors : "On"

@@ -1,0 +1,15 @@
+---
+- name: Install latest available version of select gems.
+  gem: name={{ item }} state=latest
+  with_items:
+    - bundler
+
+- name: Symlink ruby related binaries on the system path
+  file:
+    state: 'link'
+    src: '{{ rvm1_install_path }}/wrappers/default/{{ item }}'
+    dest: '{{ rvm1_symlink_to }}/{{ item }}'
+    owner: '{{ rvm1_symlink_user }}'
+    group: '{{ rvm1_symlink_group }}'
+  with_items:
+    - bundle

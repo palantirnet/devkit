@@ -1,0 +1,13 @@
+---
+system_packages:
+  - git
+  - vim
+  - unzip
+  - language-pack-en
+  - build-essential
+  - imagemagick
+  - python-mysqldb
+  - python-software-properties
+  - libyaml-0-2
+
+timezone: UTC
