@@ -10,8 +10,8 @@
     roles:
       - { role: init }
       - { role: common }
-      - { role: user }
       - { role: openssh }
+      - { role: git }
       - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: true }
       - { role: apache }
       - { role: mysql-client }

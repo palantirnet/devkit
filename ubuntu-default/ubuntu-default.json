@@ -120,7 +120,7 @@
       },
       {
         "type": "atlas",
-        "artifact": "palantir/ubuntu1404",
+        "artifact": "palantir/ubuntu-default",
         "artifact_type": "vagrant.box",
         "only": ["virtualbox-iso"],
         "metadata": {
