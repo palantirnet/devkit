@@ -1,0 +1,37 @@
+---
+- name: Drupal7-vagrant | Create databases
+  sudo: yes
+  mysql_db: name=default
+            state=present
+            login_user=root
+            login_password={{ mysql_root_pass }}
+  tags: drupal7-vagrant
+
+- name: Drupal7-vagrant | Create users
+  sudo: yes
+  mysql_user: name=default
+              password=default
+              priv=default.*:ALL
+              state=present
+              login_user=root
+              login_password={{ mysql_root_pass }}
+  tags: drupal7-vagrant
+
+- name: Drupal7-vagrant | Configure PHPMyAdmin
+  sudo: yes
+  lineinfile: dest=/etc/apache2/conf-available/phpmyadmin.conf
+              line='Include /etc/phpmyadmin/apache.conf'
+              create=yes
+              state=present
+  tags: drupal7-vagrant
+
+- name: drupal7-vagrant | Enable PHPMyAdmin
+  sudo: yes
+  command: a2enconf phpmyadmin
+  tags: drupal7-vagrant
+
+- name: Drupal7-vagrant | Restart apache
+  sudo: yes
+  service: name=apache2
+           state=restarted
+  tags: drupal7-vagrant

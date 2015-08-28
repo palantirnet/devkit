@@ -1,0 +1,43 @@
+---
+- name: PhantomJS | Install Iceweasel
+  sudo: yes
+  apt: pkg=iceweasel
+       state=installed
+  tags: phantomjs
+
+- name: PhantomJS | Create home directory
+  sudo: yes
+  file: path=/usr/local/src/phantomjs
+        state=directory
+  tags: phantomjs
+
+
+- name: PhantomJS | Download phantomjs
+  sudo: yes
+  get_url: url=https://bitbucket.org/ariya/phantomjs/downloads/{{ phantomjs }}.tar.bz2
+           dest=/usr/local/src/phantomjs/{{ phantomjs }}.tar.bz2
+  tags: phantomjs
+
+- name: PhantomJS | Untar phantomjs
+  sudo: yes
+  shell: tar xjf {{ phantomjs }}.tar.bz2
+         chdir=/usr/local/src/phantomjs
+         creates=/usr/local/src/{{ phantomjs }}
+  tags: phantomjs
+
+- name: PhantomJS |  Symlink the phantomjs executable
+  sudo: yes
+  file: dest=/usr/local/bin/phantomjs
+        src=/usr/local/src/phantomjs/{{ phantomjs }}/bin/phantomjs
+        state=link
+  tags: phantomjs
+
+- name: PhantomJS | Upstart PhantomJS
+  sudo: yes
+  template: src=upstart/phantomjs.conf.j2 dest=/etc/init/phantomjs.conf
+  tags: phantomjs
+
+- name: PhantomJS | Start PhantomJS
+  sudo: yes
+  service: name=phantomjs enabled=yes state=restarted
+  tags: phantomjs

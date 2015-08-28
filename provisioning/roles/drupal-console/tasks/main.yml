@@ -1,0 +1,27 @@
+---
+- name: Drupal Console | Check install
+  stat: path=/usr/local/bin/drupal
+  register: drupal_console_phar
+  tags: drupal-console
+
+- name: Drupal Console | Download
+  sudo: yes
+  shell: chdir=/tmp
+    php -r "readfile('http://drupalconsole.com/installer');" | php
+  when: drupal_console_phar.stat.exists == False
+  tags: drupal-console
+
+- name: Drupal Console | Install
+  sudo: yes
+  shell: mv console.phar /usr/local/bin/drupal
+    chdir=/tmp
+    creates=/usr/local/bin/drupal
+  when: drupal_console_phar.stat.exists == False
+  tags: drupal-console
+
+- name: Drupal Console | Enable
+  sudo: yes
+  file: path=/usr/local/bin/drupal
+        mode=u+rwx,g+rx,a+rx
+  when: drupal_console_phar.stat.exists == False
+  tags: drupal-console
