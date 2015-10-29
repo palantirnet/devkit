@@ -42,7 +42,7 @@
       "ssh_wait_timeout": "10000s",
       "tools_upload_flavor": "linux",
       "type": "vmware-iso",
-      "vm_name": "drupal7-vagrant",
+      "vm_name": "drupalbox",
       "vmx_data": {
         "memsize": "1024",
         "numvcpus": "1"
@@ -96,7 +96,7 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "drupal7-vagrant"
+      "vm_name": "drupalbox"
     }
   ],
   "post-processors": [
@@ -104,11 +104,11 @@
       {
         "keep_input_artifact": false,
         "type": "vagrant",
-        "vagrantfile_template": "drupal7-vagrant/Vagrantfile"
+        "vagrantfile_template": "drupalbox/Vagrantfile"
       },
       {
         "type": "atlas",
-        "artifact": "palantir/drupal7-vagrant",
+        "artifact": "palantir/drupalbox",
         "artifact_type": "vagrant.box",
         "only": ["vmware-iso"],
         "metadata": {
@@ -119,7 +119,7 @@
       },
       {
         "type": "atlas",
-        "artifact": "palantir/drupal7-vagrant",
+        "artifact": "palantir/drupalbox",
         "artifact_type": "vagrant.box",
         "only": ["virtualbox-iso"],
         "metadata": {
@@ -159,8 +159,8 @@
     {
       "type": "ansible-local",
       "playbook_dir": "provisioning",
-      "playbook_file": "provisioning/drupal7-vagrant.yml",
-      "inventory_groups": "drupal7-vagrant,all"
+      "playbook_file": "provisioning/drupalbox.yml",
+      "inventory_groups": "drupalbox,all"
     },
     {
       "environment_vars": [
@@ -186,7 +186,7 @@
     }
   ],
   "push": {
-    "name": "palantir/drupal7-vagrant",
+    "name": "palantir/drupalbox",
     "base_dir": "../",
     "vcs": true,
     "exclude": [
@@ -210,11 +210,11 @@
     "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
     "no_proxy": "{{env `no_proxy`}}",
     "rsync_proxy": "{{env `rsync_proxy`}}",
-    "hostname": "drupal7-vagrant",
+    "hostname": "drupal7kit",
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": "false",
-    "version": "2.0.0"
+    "update": "true",
+    "version": "0.0.1"
   }
 }

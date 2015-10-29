@@ -1,7 +1,7 @@
 ---
-- hosts: drupal7-vagrant
+- hosts: drupalbox
   vars:
-    hostname: drupal7-vagrant
+    hostname: drupalbox
   vars_files:
     - group_vars/dev.yml
     - vars/default/common.yml
@@ -21,4 +21,4 @@
     - { role: drupal-console }
     - { role: nodejs }
     - { role: phantomjs }
-    - { role: drupal7-vagrant }
+    - { role: drupalbox }

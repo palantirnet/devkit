@@ -1,37 +1,37 @@
 ---
-- name: Drupal7-vagrant | Create databases
+- name: DrupalBox | Create databases
   sudo: yes
-  mysql_db: name=default
+  mysql_db: name=drupal
             state=present
             login_user=root
             login_password={{ mysql_root_pass }}
-  tags: drupal7-vagrant
+  tags: drupalbox
 
-- name: Drupal7-vagrant | Create users
+- name: DrupalBox | Create users
   sudo: yes
-  mysql_user: name=default
-              password=default
+  mysql_user: name=drupal
+              password=drupal
               priv=default.*:ALL
               state=present
               login_user=root
               login_password={{ mysql_root_pass }}
-  tags: drupal7-vagrant
+  tags: drupalbox
 
-- name: Drupal7-vagrant | Configure PHPMyAdmin
+- name: DrupalBox | Configure PHPMyAdmin
   sudo: yes
   lineinfile: dest=/etc/apache2/conf-available/phpmyadmin.conf
               line='Include /etc/phpmyadmin/apache.conf'
               create=yes
               state=present
-  tags: drupal7-vagrant
+  tags: drupalbox
 
-- name: drupal7-vagrant | Enable PHPMyAdmin
+- name: DrupalBox | Enable PHPMyAdmin
   sudo: yes
   command: a2enconf phpmyadmin
-  tags: drupal7-vagrant
+  tags: drupalbox
 
-- name: Drupal7-vagrant | Restart apache
+- name: DrupalBox | Restart apache
   sudo: yes
   service: name=apache2
            state=restarted
-  tags: drupal7-vagrant
+  tags: drupalbox
