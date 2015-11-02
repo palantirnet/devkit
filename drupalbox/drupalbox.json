@@ -159,7 +159,7 @@
     {
       "type": "ansible-local",
       "playbook_dir": "provisioning",
-      "playbook_file": "provisioning/drupalbox.yml",
+      "playbook_file": "drupalbox/drupalbox.yml",
       "inventory_groups": "drupalbox,all"
     },
     {
