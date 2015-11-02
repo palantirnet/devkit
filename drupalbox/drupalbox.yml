@@ -1,0 +1,24 @@
+---
+- hosts: drupalbox
+  vars:
+    hostname: drupalbox
+  vars_files:
+    - group_vars/dev.yml
+    - vars/default/common.yml
+  roles:
+    - { role: init }
+    - { role: common }
+    - { role: openssh }
+    - { role: git }
+    - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: true }
+    - { role: apache }
+    - { role: mysql-client }
+    - { role: mysql-server }
+    - { role: php5 }
+    - { role: composer }
+    - { role: phpmyadmin }
+    - { role: drush }
+    - { role: drupal-console }
+    - { role: nodejs }
+    - { role: phantomjs }
+    - { role: drupalbox }

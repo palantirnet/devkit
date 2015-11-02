@@ -1,0 +1,11 @@
+description "PhantomJS"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+
+setuid {{ phantomjs_user }}
+setgid {{ phantomjs_group }}
+
+exec /usr/local/bin/phantomjs --webdriver=8643

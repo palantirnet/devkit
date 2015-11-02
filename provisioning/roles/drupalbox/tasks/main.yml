@@ -1,0 +1,37 @@
+---
+- name: DrupalBox | Create databases
+  sudo: yes
+  mysql_db: name=drupal
+            state=present
+            login_user=root
+            login_password={{ mysql_root_pass }}
+  tags: drupalbox
+
+- name: DrupalBox | Create users
+  sudo: yes
+  mysql_user: name=drupal
+              password=drupal
+              priv=default.*:ALL
+              state=present
+              login_user=root
+              login_password={{ mysql_root_pass }}
+  tags: drupalbox
+
+- name: DrupalBox | Configure PHPMyAdmin
+  sudo: yes
+  lineinfile: dest=/etc/apache2/conf-available/phpmyadmin.conf
+              line='Include /etc/phpmyadmin/apache.conf'
+              create=yes
+              state=present
+  tags: drupalbox
+
+- name: DrupalBox | Enable PHPMyAdmin
+  sudo: yes
+  command: a2enconf phpmyadmin
+  tags: drupalbox
+
+- name: DrupalBox | Restart apache
+  sudo: yes
+  service: name=apache2
+           state=restarted
+  tags: drupalbox
