@@ -1,0 +1,14 @@
+---
+- name: Duplicity | Create Duply Dir
+  file: path=~/.duply/{{ item.alias }}
+        state=directory
+        recurse=true
+  with_items: duplicity_profiles
+  tags: duplicity
+
+- name: Duplicity | Copy Duply Templates
+  template: src=duply/conf.j2
+            dest=~/.duply/{{ item.alias }}/conf
+            mode=600
+  with_items: duplicity_profiles
+  tags: duplicity

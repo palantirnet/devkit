@@ -1,0 +1,20 @@
+---
+- name: Duplicity | Add PPA
+  sudo: yes
+  apt_repository: repo='ppa:duplicity-team/ppa'
+                  state=present
+  tags: duplicity
+
+- name: Duplicity | Update apt cache
+  sudo: yes
+  apt: update-cache=yes
+  tags: duplicity
+
+- name: Duplicity | Install System Packages
+  sudo: yes
+  apt: pkg={{ item }} state=installed
+  with_items:
+      - duplicity
+      - duply
+      - python-boto
+  tags: duplicity
