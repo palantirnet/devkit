@@ -11,12 +11,9 @@
                   update_cache=yes
   tags: Git
 
-- name: Git | Update apt cache
-  sudo: yes
-  apt: update-cache=yes
-  tags: git
-
 - name: Git | Install Git v2
   sudo: yes
-  apt: name=git state=present
+  apt: name=git
+       update_cache=yes
+       state=present
   tags: git
