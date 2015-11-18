@@ -9,6 +9,11 @@
   apt_repository: repo=ppa:git-core/ppa
                   state=present
                   update_cache=yes
+  tags: Git
+
+- name: Git | Update apt cache
+  sudo: yes
+  apt: update-cache=yes
   tags: git
 
 - name: Git | Install Git v2
