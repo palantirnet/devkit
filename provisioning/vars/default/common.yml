@@ -9,5 +9,6 @@ system_packages:
   - python-mysqldb
   - python-software-properties
   - libyaml-0-2
+  - jq/trusty-backports
 
 timezone: UTC
