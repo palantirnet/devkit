@@ -1,6 +1,5 @@
 ---
 system_packages:
-  - git
   - vim
   - unzip
   - language-pack-en
@@ -8,6 +7,12 @@ system_packages:
   - imagemagick
   - python-mysqldb
   - python-software-properties
+  - python-pip
   - libyaml-0-2
+system_packages_backports:
+  - jq
+
+pip_packages:
+  - shyaml
 
 timezone: UTC

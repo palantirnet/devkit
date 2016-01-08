@@ -1,0 +1,7 @@
+---
+- include: install.yml
+- include: configure.yml
+  when: duplicity_passphrase|default(None) != None and
+        duplicity_iam_key|default(None) != None and
+        duplicity_iam_secret|default(None) != None and
+        duplicity_s3_bucket|default(None) != None

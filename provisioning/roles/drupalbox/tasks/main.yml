@@ -7,6 +7,12 @@
             login_password={{ mysql_root_pass }}
   tags: drupalbox
 
+- name: DupalBox | Create .my.cnf
+  template: src=my.cnf
+            dest=~/.my.cnf
+            mode=600
+  tags: drupalbox
+
 - name: DrupalBox | Create users
   sudo: yes
   mysql_user: name=drupal

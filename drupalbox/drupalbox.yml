@@ -2,6 +2,7 @@
 - hosts: drupalbox
   vars:
     hostname: drupalbox
+    rvm1_user: vagrant
   vars_files:
     - group_vars/dev.yml
     - vars/default/common.yml
@@ -21,4 +22,5 @@
     - { role: drupal-console }
     - { role: nodejs }
     - { role: phantomjs }
+    - { role: duplicity }
     - { role: drupalbox }

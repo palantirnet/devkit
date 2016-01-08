@@ -1,0 +1,5 @@
+GPG_PW='{{ duplicity_passphrase }}'
+TARGET_USER="{{ duplicity_iam_key }}"
+TARGET_PASS="{{ duplicity_iam_secret }}"
+TARGET='{{ item.s3_target }}'
+SOURCE='{{ item.s3_source }}'
