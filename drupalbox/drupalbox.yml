@@ -3,6 +3,7 @@
   vars:
     hostname: drupalbox
     rvm1_user: vagrant
+    rvm1_install_path: /home/vagrant/.rvm
   vars_files:
     - group_vars/dev.yml
     - vars/default/common.yml
