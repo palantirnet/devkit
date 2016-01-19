@@ -17,8 +17,8 @@ echo "==> Removing documentation"
 dpkg --list | awk '{ print $2 }' | grep -- '-doc$' | xargs apt-get -y purge
 echo "==> Removing development tools"
 #dpkg --list | grep -i compiler | awk '{ print $2 }' | xargs apt-get -y purge
-#apt-get -y purge cpp gcc g++ 
-apt-get -y purge build-essential git
+#apt-get -y purge cpp gcc g++
+apt-get -y purge build-essential
 echo "==> Removing default system Ruby"
 apt-get -y purge ruby ri doc
 echo "==> Removing default system Python"

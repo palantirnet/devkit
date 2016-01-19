@@ -102,8 +102,9 @@
   "post-processors": [
     [
       {
-        "keep_input_artifact": false,
         "type": "vagrant",
+        "keep_input_artifact": false,
+        "output": "drupalbox_{{.Provider}}.box",
         "vagrantfile_template": "drupalbox/Vagrantfile"
       },
       {
@@ -215,6 +216,6 @@
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
     "update": "true",
-    "version": "0.0.4"
+    "version": "0.0.6"
   }
 }
