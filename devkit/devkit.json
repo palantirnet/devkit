@@ -161,8 +161,8 @@
     {
       "type": "ansible-local",
       "playbook_dir": "provisioning",
-      "playbook_file": "provisioning/devkit.yml",
-      "inventory_groups": "devkit,all,dev-sql,dev-web"
+      "playbook_file": "devkit/devkit.yml",
+      "inventory_groups": "all,devkit"
     },
     {
       "environment_vars": [
@@ -216,7 +216,7 @@
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": "false",
-    "version": "0.0.1"
+    "update": "true",
+    "version": "0.0.2"
   }
 }

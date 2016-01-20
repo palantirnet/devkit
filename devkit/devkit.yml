@@ -2,6 +2,7 @@
   - hosts: devkit
     vars:
       hostname: devkit.local
+      rvm1_install_path: /home/vagrant/.rvm
     vars_files:
       - group_vars/dev.yml
       - vars/default/common.yml
