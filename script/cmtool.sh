@@ -91,7 +91,6 @@ install_ansible()
     if [[ ${CM_VERSION} == 'latest' ]]; then
         echo "Installing latest Ansible version"
         # assuming 14.04; if older need python-software-properties
-        apt-get update
         apt-get install -y software-properties-common
         apt-add-repository -y ppa:ansible/ansible
         apt-get update
