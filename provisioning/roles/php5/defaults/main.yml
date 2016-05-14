@@ -50,7 +50,7 @@ php_ini_session_name              : myPHPSESSID
 php_ini_session_hash_function     : 1
 php_ini_session_hash_bits_per_character : 6
 php_ini_session_use_trans_sid     : 0
-php_ini_#session_cookie_domain    : full.qualified.domain.name
+#php_ini_session_cookie_domain    : full.qualified.domain.name
 php_ini_session_cookie_domain     :
 php_ini_session_cookie_path       : /
 php_ini_session_cookie_lifetime   : 0
