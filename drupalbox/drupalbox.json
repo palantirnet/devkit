@@ -152,7 +152,8 @@
         "script/update.sh",
         "script/vagrant.sh",
         "script/sshd.sh",
-        "script/vmtool.sh",
+        "script/virtualbox.sh",
+        "script/vmware.sh",
         "script/cmtool.sh"
       ],
       "type": "shell"
