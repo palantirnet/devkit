@@ -165,6 +165,20 @@
       "inventory_groups": "drupalbox,all"
     },
     {
+        "type": "file",
+        "source": "tests",
+        "destination": "/tmp"
+    },
+    {
+        "type": "file",
+        "source": "drupalbox/tests",
+        "destination": "/tmp/tests/specs"
+    },
+    {
+        "type": "shell",
+        "script": "script/serverspec.sh"
+    },
+    {
       "environment_vars": [
         "CM={{user `cm`}}",
         "CM_VERSION={{user `cm_version`}}",
