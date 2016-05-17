@@ -10,7 +10,7 @@
   tags: drush
 
 - name: Drush | Install drush@dev-master
-  shell: composer global require drush/drush:dev-master
+  shell: composer global require drush/drush:8.*
   when: drush_binary.stat.exists == False
   tags: drush
 
