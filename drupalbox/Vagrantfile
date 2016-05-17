@@ -26,14 +26,14 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--memory", 1024]
   end
 
-  # config.vm.provision "ansible" do |ansible|
+  # config.vm.provision :ansible do |ansible|
   #   ansible.playbook = "drupalbox.yml"
   #   ansible.groups = {
   #     "drupalbox" => "default",
   #   }
   # end
 
-  config.vm.provision :serverspec do |spec|
+  config.vm.provision "test", type: :serverspec do |spec|
     spec.pattern = 'tests/*_spec.rb'
   end
 
