@@ -36,7 +36,7 @@ docker_package_install() {
 
 docker_io_install() {
     echo "==> Installing Docker"
-    
+
     # Update sources
     apt-get update
     apt-get install -y docker.io
@@ -58,7 +58,7 @@ docker_io_install() {
 
     # not really needed because docker.io is still there
     sed -i 's/\(docker\)\.io/\1/g' /usr/share/docker.io/contrib/*.sh
-    
+
     # Enable memory and swap accounting
     sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1"/' /etc/default/grub
     update-grub
@@ -84,4 +84,4 @@ give_docker_non_root_access() {
 }
 
 give_docker_non_root_access
-docker_package_install 
+docker_package_install
