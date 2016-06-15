@@ -9,3 +9,11 @@
   sudo: yes
   shell: composer self-update
   tags: composer
+
+- name: Composer | Update .bashrc
+  lineinfile: dest=/home/{{ ansible_user_id }}/.bashrc
+              regexp="export PATH=\"$HOME/.config/composer/vendor/bin:$PATH\""
+              line="export PATH=\"$HOME/.config/composer/vendor/bin:$PATH\""
+              insertafter=EOF
+              state=present
+  tags: composer

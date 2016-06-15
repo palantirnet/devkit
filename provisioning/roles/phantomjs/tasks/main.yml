@@ -1,16 +1,22 @@
 ---
-- name: PhantomJS | Install Iceweasel
+- name: PhantomJS | Install firefox
   sudo: yes
   apt: pkg=iceweasel
        state=installed
+       update-cache=yes
   tags: phantomjs
+
+- name: PhantonJS | Install fontconfig
+  sudo: yes
+  apt: pkg=fontconfig
+       state=installed
+  tags: phantonjs
 
 - name: PhantomJS | Create home directory
   sudo: yes
   file: path=/usr/local/src/phantomjs
         state=directory
   tags: phantomjs
-
 
 - name: PhantomJS | Download phantomjs
   sudo: yes
