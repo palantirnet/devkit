@@ -14,8 +14,12 @@ describe 'MySQL config parameters' do
       its(:value) { should >= 16777216 }
     end
 
-    context mysql_config('bind-address') do
+    context mysql_config('bind-address'), :if => os[:release] == '14.04' do
       its(:value) { should eq '0.0.0.0' }
+    end
+
+    context mysql_config('bind-address'), :if => os[:release] == '16.04' do
+      its(:value) { should eq '*' }
     end
 end
 
