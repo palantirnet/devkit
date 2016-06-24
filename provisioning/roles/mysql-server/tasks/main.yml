@@ -6,9 +6,18 @@
 
 - name: MySQL | Update my.cnf
   sudo: yes
-  template: src=my.cnf dest=/etc/mysql/my.cnf
+  template: src=14.04/my.cnf dest=/etc/mysql/my.cnf
   notify:
     - restart mysql
+  when: ansible_distribution_version == '14.04'
+  tags: mysql-server
+
+- name: MySQL | Update my.cnf
+  sudo: yes
+  template: src=16.04/mysqld.cnf dest=/etc/mysql/mysql.conf.d/mysqld.cnf
+  notify:
+    - restart mysql
+  when: ansible_distribution_version == '16.04'
   tags: mysql-server
 
 - name: MySQL | Test root has blank password
