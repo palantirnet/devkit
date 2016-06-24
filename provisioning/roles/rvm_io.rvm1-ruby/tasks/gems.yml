@@ -3,6 +3,7 @@
   gem: name={{ item }} state=latest
   with_items:
     - bundler
+  sudo_user: '{{ rvm1_user }}'
 
 - name: Symlink ruby related binaries on the system path
   file:
