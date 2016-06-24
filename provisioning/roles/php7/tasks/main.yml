@@ -1,0 +1,34 @@
+---
+
+- name: Install PHP
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - php7.0-cli
+    - php7.0-fpm
+    - php-pear
+    - php7.0-common
+    - php7.0-dev
+    - php-console-table
+  tags: php7
+
+- name: Install PHP Modules
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items: php7_modules
+  tags: php7
+
+- name: Enable Modules
+  sudo: true
+  shell: /usr/sbin/phpenmod {{ item }}
+  with_items: php7_modules_enable
+  tags: php7
+
+- name: Update php.ini (cli)
+  sudo: yes
+  template: src=php.ini.j2 dest={{ item }} owner=root group=root
+  with_items:
+    - /etc/php/7.0/cli/php.ini
+    - /etc/php/7.0/fpm/php.ini
+  notify: restart apache
+  tags: php7
