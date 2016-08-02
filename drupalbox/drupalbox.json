@@ -205,13 +205,18 @@
     "vcs": true,
     "exclude": [
       "packer_cache",
-      "box"
+      "box",
+      "drupalbox/ansible.cfg",
+      "drupalbox/group_vars",
+      "drupalbox/roles",
+      "drupalbox/vars"
     ]
   },
   "variables": {
     "cleanup_pause": "",
     "cm": "ansible",
     "cm_version": "latest",
+    "iso_checksum_type": "sha1",
     "custom_script": ".",
     "ftp_proxy": "{{env `ftp_proxy`}}",
     "headless": "",
