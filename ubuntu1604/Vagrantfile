@@ -8,7 +8,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "palantir/ubuntu1604"
   config.vm.box_version = ">= 0.0.1, < 1.0.0"
 
-  config.vm.network "private_network", :auto_network => true
+  # This is how you enable auto_network
+  # config.vm.network "private_network", :auto_network => true
   config.vm.synced_folder ".", "/vagrant", :nfs => true
 
   config.ssh.forward_agent = true

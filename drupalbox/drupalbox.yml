@@ -5,8 +5,10 @@
     rvm1_user: vagrant
     rvm1_install_path: /home/vagrant/.rvm
   vars_files:
-    - group_vars/dev.yml
     - vars/default/common.yml
+    - vars/dev/mysql.yml
+    - vars/dev/apache.yml
+    - vars/dev/php.yml
   roles:
     - { role: init }
     - { role: common }
@@ -16,7 +18,8 @@
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }
-    - { role: php5 }
+    - { role: php5, when: ansible_distribution_version == '14.04' }
+    - { role: php7, when: ansible_distribution_version == '16.04' }
     - { role: composer }
     - { role: phpmyadmin }
     - { role: drush }

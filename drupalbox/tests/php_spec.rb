@@ -1,6 +1,10 @@
 require_relative 'spec_helper'
 
-describe package('php5-cli') do
+describe package('php5-cli'), :if => os[:release] == '14.06' do
+  it { should be_installed }
+end
+
+describe package('php7.0-cli'), :if => os[:release] == '16.06' do
   it { should be_installed }
 end
 

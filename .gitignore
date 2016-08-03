@@ -3,3 +3,5 @@
 /box/
 /iso/
 /tests/vendor
+*.retry
+*.box

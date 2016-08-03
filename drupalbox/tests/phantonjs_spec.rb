@@ -12,7 +12,11 @@ describe file('/usr/local/bin/phantomjs') do
     it {should be_symlink }
 end
 
-describe file('/etc/init/phantomjs.conf') do
+describe file('/etc/init/phantomjs.conf'), :if => os[:release] == '14.04' do
+    it { should exist }
+end
+
+describe file('/lib/systemd/system/phantomjs.service'), :if => os[:release] == '16.04' do
     it { should exist }
 end
 

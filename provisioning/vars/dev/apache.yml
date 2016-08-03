@@ -1,6 +1,7 @@
 ---
-  apache_modules:
-    - rewrite
-    - proxy
-    - proxy_fcgi
-    - proxy_http
+apache_modules:
+  - vhost_alias
+  - rewrite
+  - proxy
+  - proxy_fcgi
+  - proxy_http

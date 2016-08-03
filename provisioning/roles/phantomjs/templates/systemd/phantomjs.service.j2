@@ -1,0 +1,11 @@
+[Unit]
+Description=
+Documentation=
+User={{ phantomjs_user }}
+Group={{ phantomjs_group }}
+
+[Service]
+ExecStart=/usr/local/bin/phantomjs --webdriver=8643
+
+[Install]
+WantedBy=multi-user.target
