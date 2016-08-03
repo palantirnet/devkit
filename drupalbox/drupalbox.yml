@@ -15,6 +15,7 @@
     - { role: openssh }
     - { role: git }
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: true }
+    - { role: memcached }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }
