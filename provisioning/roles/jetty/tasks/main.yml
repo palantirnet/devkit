@@ -1,0 +1,62 @@
+---
+- name: Jetty | Add jetty group
+  become: yes
+  group:
+    name: "{{ jetty_app_group }}"
+    state: present
+  tags: jetty
+
+- name: Jetty | Add jetty user
+  become: yes
+  user:
+    name: "{{ jetty_app_user }}"
+    group: "{{ jetty_app_group }}"
+    home: "{{ jetty_app_home }}"
+  tags: jetty
+
+- name: Jetty | Install Jetty
+  become: yes
+  apt:
+    pkg: "{{ item }}"
+    state: installed
+    update_cache: yes
+  with_items: "{{ jetty_packages }}"
+  tags: jetty
+
+- name: Jetty | Generate Jetty default config
+  become: yes
+  template:
+    src: default_jetty.j2
+    dest: "{{ jetty_app_default_dir }}/jetty"
+    owner: "{{ jetty_app_user }}"
+    group: "{{ jetty_app_group }}"
+    mode: 0644
+  tags: jetty
+
+- name: Jetty | Generate jetty.xml
+  become: yes
+  template:
+    src: jetty.xml.j2
+    dest: "{{ jetty_app_config_dir }}/jetty.xml"
+    owner: "{{ jetty_app_user }}"
+    group: "{{ jetty_app_group }}"
+    mode: 0644
+  tags: jetty
+
+- name: Jetty | Enable Jetty Service
+  become: yes
+  service:
+    name: jetty
+    state: restarted
+    enabled: yes
+  when: jetty_server_enabled == True
+  tags: jetty
+
+- name: Jetty | Disable Jetty Service
+  become: yes
+  service:
+    name: jetty
+    state: stopped
+    enabled: no
+  when: jetty_server_enabled != True
+  tags: jetty

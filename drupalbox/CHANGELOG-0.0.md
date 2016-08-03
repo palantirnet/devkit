@@ -8,3 +8,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Memcached role
 - Mailhog role
+- Jetty role
