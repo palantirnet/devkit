@@ -1,0 +1,58 @@
+---
+
+- name: Solr | Check src extracted
+  become: yes
+  stat:
+    path: "{{ solr_version_src_dir }}"
+  register: solr_src_extracted
+  tags: solr
+
+- name: Solr | Download Solr
+  become: yes
+  get_url:
+    url: "{{ solr_mirror }}/{{ solr_version }}/{{ solr_version_file }}"
+    dest: "{{ solr_root_src_dir }}/{{ solr_version_file }}"
+  when: solr_src_file_exists.stat.exists == False
+  tags: solr
+
+- name: Solr | Extract source
+  become: yes
+  unarchive:
+    src: "{{ solr_root_src_dir }}/{{ solr_version_file }}"
+    dest: "{{ solr_root_src_dir }}"
+    copy: no
+  when: solr_src_extracted.stat.exists == False
+  tags: solr
+
+- name: Solr | Unzip war
+  become: yes
+  unarchive:
+    src: "{{ solr_version_src_dir }}/dist/{{ solr_version_war }}.war"
+    dest: "{{ solr_home_dir }}"
+    owner: "{{ solr_app_user }}"
+    group: "{{ solr_app_group }}"
+    copy: no
+  tags: solr
+
+- name: Solr | Link to current
+  become: yes
+  file:
+    src: "{{ solr_home_dir }}"
+    dest: "{{ solr_root_dir }}/current"
+    state: link
+    force: yes
+  tags: solr
+
+- name: Solr | Copy slf4f-api jar
+  become: yes
+  shell: "cp {{ slf4j_api_path }}/{{ slf4j_api_file }} {{ solr_home_dir }}/WEB-INF/lib"
+  tags: solr
+
+- name: Solr | Link to Jetty
+  become: yes
+  file:
+    src: "{{ solr_root_dir }}/current"
+    dest: "{{ jetty_app_webapp_dir }}/{{ solr_app_name }}"
+    state: link
+    force: yes
+  tags: solr

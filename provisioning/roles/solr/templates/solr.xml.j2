@@ -1,0 +1,7 @@
+<solr persistent="true">
+    <cores adminPath="/admin/cores">
+        {% for core in solr_cores %}
+        <core name="{{ core }}" instanceDir="cores/{{ core }}" dataDir="{{ solr_data_dir }}/{{ core }}/data" />
+        {% endfor %}
+    </cores>
+</solr>

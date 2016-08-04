@@ -7,6 +7,8 @@
   vars:
     php_ini_sendmail_path: "/usr/local/bin/mhsendmail"
     jetty_server_enabled: false
+    jetty_server_java_options: "-Xmx256m -Djava.awt.headless=true -Dsolr.solr.home=/usr/share/solr/current"
+    solr_cores: []
   vars_files:
     - vars/default/common.yml
     - vars/dev/mysql.yml
@@ -21,6 +23,7 @@
     - { role: memcached }
     - { role: mailhog }
     - { role: jetty }
+    - { role: solr }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }

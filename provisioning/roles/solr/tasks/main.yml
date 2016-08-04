@@ -1,0 +1,11 @@
+---
+- include: init.yml
+- include: install.yml
+- include: cores.yml
+
+- name: Solr | Restart Jetty
+  become: yes
+  service:
+    name: jetty
+    state: restarted
+  tags: solr
