@@ -7,3 +7,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Memcached role
+- Mailhog role

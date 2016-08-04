@@ -1,0 +1,7 @@
+---
+  mailhog_version: v0.2.0
+  mailhog_user: mailhog
+  mailhog_group: mailhog
+  mailhog_home_dir: /usr/local/mailhog
+  mailhog_binary_url: "https://github.com/mailhog/MailHog/releases/download/{{ mailhog_version}}/MailHog_linux_amd64"
+  mhsendmail_binary_url: "https://github.com/mailhog/mhsendmail/releases/download/{{ mailhog_version }}/mhsendmail_linux_amd64"

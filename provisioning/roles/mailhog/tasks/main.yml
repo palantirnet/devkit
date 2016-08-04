@@ -1,0 +1,99 @@
+---
+
+- name: Mailhog | Create Mailhog Group
+  become: yes
+  group:
+    name: "{{ mailhog_group }}"
+    system: yes
+    state: present
+  tags: mailhog
+
+- name: Mailhog | Create Mailhog User
+  become: yes
+  user:
+    name: "{{ mailhog_user }}"
+    group: "{{ mailhog_group }}"
+    home: "{{ mailhog_home_dir }}"
+    system: yes
+    shell: /usr/sbin/nologin
+    state: present
+  tags: mailhog
+
+- name: Mailhog | Create Mailhog Directories
+  become: yes
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+    owner: "{{ mailhog_user }}"
+    group: "{{ mailhog_group }}"
+  with_items:
+    - "{{ mailhog_home_dir }}"
+    - "{{ mailhog_home_dir }}/bin"
+  tags: mailhog
+
+- name: Mailhog | Download Mailhog
+  become: yes
+  get_url:
+    url: "{{ mailhog_binary_url }}"
+    dest: "{{ mailhog_home_dir }}/bin/mailhog"
+    mode: 0755
+    owner: "{{ mailhog_user }}"
+    group: "{{ mailhog_group }}"
+  tags: mailhog
+
+- name: Mailhog | Download MHSendmail
+  become: yes
+  get_url:
+    url: "{{ mhsendmail_binary_url }}"
+    dest: "{{ mailhog_home_dir }}/bin/mhsendmail"
+    mode: 0755
+    owner: "{{ mailhog_user }}"
+    group: "{{ mailhog_group }}"
+  tags: mailhog
+
+- name: Mailhog | Symlink Mailhog to /usr/local/bin
+  become: yes
+  file:
+    src: "{{ mailhog_home_dir }}/bin/mailhog"
+    dest: /usr/local/bin/mailhog
+    state: link
+  tags: mailhog
+
+- name: Mailhog | Symlink Mhsendmail to /usr/local/bin
+  become: yes
+  file:
+    src: "{{ mailhog_home_dir }}/bin/mhsendmail"
+    dest: /usr/local/bin/mhsendmail
+    state: link
+  tags: mailhog
+
+- name: Mailhog | Configure Upstart Mailhog Service
+  become: yes
+  template:
+    src: upstart/mailhog.conf.j2
+    dest: /etc/init/mailhog.conf
+    mode: 0755
+    owner: root
+    group: root
+  when: ansible_distribution_version == '14.04'
+  tags: mailhog
+
+- name: Mailhog | Configure Systemd Mailhog Service
+  become: yes
+  template:
+    src: systemd/mailhog.service.j2
+    dest: /lib/systemd/system/mailhog.service
+    mode: 0755
+    owner: root
+    group: root
+  when: ansible_distribution_version == '16.04'
+  tags: mailhog
+
+- name: Mailhog | Enable Mailhog
+  become: yes
+  service:
+    name: mailhog
+    enabled: yes
+    state: started
+  tags: mailhog

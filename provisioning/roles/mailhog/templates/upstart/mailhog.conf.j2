@@ -1,0 +1,11 @@
+description "Mailhog"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+
+setuid {{ mailhog_user }}
+setgid {{ mailhog_group }}
+
+exec {{ mailhog_home_dir }}/bin/mailhog
