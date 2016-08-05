@@ -4,7 +4,6 @@
     hostname: drupalbox
     rvm1_user: vagrant
     rvm1_install_path: /home/vagrant/.rvm
-  vars:
     php_ini_sendmail_path: "/usr/local/bin/mhsendmail"
     jetty_server_enabled: false
     jetty_server_java_options: "-Xmx256m -Djava.awt.headless=true -Dsolr.solr.home=/usr/share/solr/current"
