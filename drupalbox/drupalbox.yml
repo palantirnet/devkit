@@ -4,8 +4,10 @@
     hostname: drupalbox
     rvm1_user: vagrant
     rvm1_install_path: /home/vagrant/.rvm
-  vars:
     php_ini_sendmail_path: "/usr/local/bin/mhsendmail"
+    jetty_server_enabled: false
+    jetty_server_java_options: "-Xmx256m -Djava.awt.headless=true -Dsolr.solr.home=/usr/share/solr/current"
+    solr_cores: []
   vars_files:
     - vars/default/common.yml
     - vars/dev/mysql.yml
@@ -19,6 +21,8 @@
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: true }
     - { role: memcached }
     - { role: mailhog }
+    - { role: jetty }
+    - { role: solr }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }

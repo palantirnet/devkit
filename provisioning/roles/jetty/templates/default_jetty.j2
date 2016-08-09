@@ -1,0 +1,14 @@
+# Defaults for jetty see /etc/init.d/jetty for more
+#
+# {{ ansible_managed }}
+
+NO_START={{ jetty_server_no_start }}
+VERBOSE=yes
+JETTY_USER={{ jetty_app_user }}
+JETTY_HOST={{ jetty_server_host }}
+JETTY_PORT={{ jetty_server_port }}
+JETTY_LOGS={{ jetty_app_log_dir }}
+JETTY_ARGS={{ jetty_server_args }}
+JAVA_OPTIONS="{{ jetty_server_java_options }}"
+JAVA_HOME={{ java_home_dir }}
+JETTY_TMP={{ jetty_app_tmp_dir }}

@@ -1,0 +1,24 @@
+---
+solr_mirror: https://archive.apache.org/dist/lucene/solr/
+solr_version: 4.9.1
+
+slf4j_api_version: 1.7.6
+slf4j_api_path: "{{ solr_version_src_dir }}/dist/solrj-lib"
+slf4j_api_file: "slf4j-api-{{ slf4j_api_version }}.jar"
+
+solr_app_name: solr
+
+solr_root_src_dir: /usr/local/src/solr
+solr_root_dir: /usr/share/solr
+solr_home_dir: "{{ solr_root_dir }}/{{ solr_version }}"
+solr_data_dir: /var/lib/solr
+
+solr_version_dir: solr-{{ solr_version }}
+solr_version_war: solr-{{ solr_version }}
+solr_version_file: "{{ solr_version_dir }}.tgz"
+solr_version_src_dir: "{{ solr_root_src_dir }}/{{ solr_version_dir }}"
+
+solr_app_user: jetty
+solr_app_group: jetty
+
+solr_cores: []

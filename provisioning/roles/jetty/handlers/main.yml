@@ -1,0 +1,7 @@
+---
+  - name: Jetty | Restart jetty
+    become: yes
+    service:
+      name: jetty
+      state: restarted
+    tags: jetty
