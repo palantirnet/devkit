@@ -7,9 +7,11 @@ php5_modules:
   - php5-mcrypt
   - php5-mysql
   - php5-sqlite
+  - php5-memcached
 
 php5_modules_enable:
   - mcrypt
+  - memcached
 
 # Defaults are based on the Open Web Application Security Project
 # for more information, see

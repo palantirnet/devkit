@@ -4,8 +4,31 @@ describe package('php5-cli'), :if => os[:release] == '14.06' do
   it { should be_installed }
 end
 
-describe package('php7.0-cli'), :if => os[:release] == '16.06' do
-  it { should be_installed }
+%w{
+  cli
+  curl
+  gd
+  intl
+  json
+  mcrypt
+  mysql
+  sqlite
+  memcached
+}.each do |pkg|
+  describe package("php5-#{pkg}"), :if => os[:release] == '14.06' do
+    it { should be_installed }
+  end
+
+  describe package("php7.0-#{pkg}"), :if => os[:release] == '16.06' do
+    it { should be_installed }
+  end
+
+  # cli and sqlite are not valid extension names
+  unless %w{cli sqlite}.include?(pkg)
+    context php_extension(pkg) do
+      it { should be_loaded }
+    end
+  end
 end
 
 describe 'PHP config parameters' do
