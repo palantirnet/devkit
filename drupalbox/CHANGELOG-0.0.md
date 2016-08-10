@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Added PHP Memcached extension
+- Allowed remote Mysql connections for 'drupal' user
 
 ## [0.1.0] - 2016-08-09
 
