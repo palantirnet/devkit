@@ -16,6 +16,7 @@
 - name: DrupalBox | Create users
   sudo: yes
   mysql_user: name=drupal
+              host="%"
               password=drupal
               priv=default.*:ALL
               state=present
