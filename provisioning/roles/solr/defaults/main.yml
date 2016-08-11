@@ -2,9 +2,7 @@
 solr_mirror: https://archive.apache.org/dist/lucene/solr/
 solr_version: 4.9.1
 
-slf4j_api_version: 1.7.6
-slf4j_api_path: "{{ solr_version_src_dir }}/dist/solrj-lib"
-slf4j_api_file: "slf4j-api-{{ slf4j_api_version }}.jar"
+slf4j_lib_path: "{{ solr_version_src_dir }}/example/lib/ext"
 
 solr_app_name: solr
 
