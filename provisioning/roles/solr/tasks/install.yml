@@ -43,9 +43,24 @@
     force: yes
   tags: solr
 
-- name: Solr | Copy slf4f-api jar
+- name: Solr | Copy logging libraries
   become: yes
-  shell: "cp {{ slf4j_api_path }}/{{ slf4j_api_file }} {{ solr_home_dir }}/WEB-INF/lib"
+  shell: "cp {{ slf4j_lib_path }}/* {{ solr_home_dir }}/WEB-INF/lib"
+  tags: solr
+
+- name: Solr | Copy contrib libraries
+  become: yes
+  shell: "cp -R {{ solr_version_src_dir }}/contrib {{ solr_home_dir }}/"
+  tags: solr
+
+- name: Solr | Fix directory ownership
+  become: yes
+  file:
+    path: "{{ solr_home_dir }}"
+    recurse: yes
+    state: directory
+    owner: "{{ solr_app_user }}"
+    group: "{{ solr_app_group }}"
   tags: solr
 
 - name: Solr | Link to Jetty
