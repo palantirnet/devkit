@@ -8,4 +8,5 @@
   service:
     name: jetty
     state: restarted
+  when: "{{ jetty_server_enabled }} == True"
   tags: solr

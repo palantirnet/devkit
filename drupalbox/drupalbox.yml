@@ -7,7 +7,11 @@
     php_ini_sendmail_path: "/usr/local/bin/mhsendmail"
     jetty_server_enabled: false
     jetty_server_java_options: "-Xmx256m -Djava.awt.headless=true -Dsolr.solr.home=/usr/share/solr/current"
-    solr_cores: []
+    solr_cores:
+      - name: drupal7
+        folder: search_api_solr-7x-1.11-4.x
+      - name: drupal8
+        folder: search_api_solr-8x-1.0-alpha5-4.x
   vars_files:
     - vars/default/common.yml
     - vars/dev/mysql.yml

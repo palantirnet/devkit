@@ -3,7 +3,7 @@
 - name: Solr | Copy cores
   become: yes
   copy:
-    src: "cores/{{ item }}"
+    src: "cores/{{ item.folder }}"
     dest: "{{ solr_home_dir }}/cores"
     owner: "{{ solr_app_user }}"
     group: "{{ solr_app_group }}"
@@ -13,7 +13,7 @@
 - name: Solr | Create Data Directories
   become: yes
   file:
-    path: "{{ solr_data_dir }}/{{ item }}/data"
+    path: "{{ solr_data_dir }}/{{ item.folder }}/data"
     owner: "{{ solr_app_user }}"
     group: "{{ solr_app_group }}"
     recurse: true
