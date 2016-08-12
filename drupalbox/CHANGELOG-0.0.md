@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [UNRELEASED]
+
+### Fixes
+
+- Fixes incorrect database privileges for drupal user
+
 ## [0.1.1] - 2016-08-11
 
 ### Added
