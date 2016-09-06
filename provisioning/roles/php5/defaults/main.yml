@@ -68,7 +68,6 @@ php_ini_default_socket_timeout    : 60
 #[PHP misc]
 php_ini_mysqlnd_collect_memory_statistics: "false"
 php_ini_sendmail_path             : /bin/false
-php_ini_session_save_path         : /tmp
 
 #[PHP performance]
 php_ini_max_execution_time        : 60
