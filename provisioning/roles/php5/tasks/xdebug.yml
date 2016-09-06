@@ -16,3 +16,10 @@
   shell: "/usr/sbin/php5dismod -s cli xdebug"
   when: php5_xdebug_enabled_cli == False
   tags: php5
+
+- name: Configure XDebug
+  become: yes
+  template:
+    src: xdebug.ini.j2
+    dest: /etc/php5/mods-available/xdebug.ini
+  tags: php5
