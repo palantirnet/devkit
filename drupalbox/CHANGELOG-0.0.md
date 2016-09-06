@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 - Drupal Console
+- Drush
 
 ## [0.1.1] - 2016-08-11
 
