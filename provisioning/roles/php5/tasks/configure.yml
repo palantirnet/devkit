@@ -1,0 +1,13 @@
+---
+- name: Update php.ini (cli)
+  become: yes
+  template:
+    src: php.ini.j2
+    dest: "{{ item }}"
+    owner: root
+    group: root
+  with_items:
+    - /etc/php5/cli/php.ini
+    - /etc/php5/apache2/php.ini
+  notify: restart apache
+  tags: php5

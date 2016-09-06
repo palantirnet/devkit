@@ -13,6 +13,9 @@ php5_modules_enable:
   - mcrypt
   - memcached
 
+php5_xdebug_enabled: false
+php5_xdebug_enabled_cli: false
+
 # Defaults are based on the Open Web Application Security Project
 # for more information, see
 # https://www.owasp.org/index.php/PHP_Configuration_Cheat_Sheet

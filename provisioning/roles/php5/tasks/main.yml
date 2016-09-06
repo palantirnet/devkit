@@ -1,37 +1,15 @@
 ---
-- name: PHP5 | Add apt-repository
-  sudo: yes
-  apt_repository: repo='ppa:ondrej/php5-5.6'
-  tags: php5
 
-- name: PHP5 | Install PHP
-  sudo: true
-  apt: name={{ item }} state=latest
-  with_items:
-    - php-console-table
-    - php-pear
-    - php5-cli
-    - php5-common
-    - php5-dev
-    - libapache2-mod-php5
-  tags: php5
+- include: install.yml
 
-- name: PHP5 | Install PHP Modules
-  sudo: true
-  apt: name={{ item }} state=latest
-  with_items: php5_modules
-  tags: php5
+- include: configure.yml
 
-- name: PHP5 | Enable Modules
-  sudo: true
-  shell: /usr/sbin/php5enmod {{ item }}
-  with_items: php5_modules_enable
+- include: xdebug.yml
+  when: php5_xdebug_enabled == True
 
-- name: PHP5 | Update php.ini (cli)
-  sudo: yes
-  template: src=php.ini.j2 dest={{ item }} owner=root group=root
-  with_items:
-    - /etc/php5/cli/php.ini
-    - /etc/php5/apache2/php.ini
-  notify: restart apache
+- name: Retart Apache
+  become: yes
+  service:
+    name: apache2
+    state: restarted
   tags: php5
