@@ -8,6 +8,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Fixes incorrect database privileges for drupal user
 
+### Removed
+
+- Drupal Console
+
 ## [0.1.1] - 2016-08-11
 
 ### Added
