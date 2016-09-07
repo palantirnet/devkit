@@ -36,7 +36,6 @@
     - { role: composer }
     - { role: phpmyadmin }
     - { role: drush }
-    - { role: drupal-console }
     - { role: nodejs }
     - { role: phantomjs }
     - { role: duplicity }
