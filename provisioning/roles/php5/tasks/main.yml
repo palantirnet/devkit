@@ -7,7 +7,7 @@
 - include: xdebug.yml
   when: php5_xdebug_enabled == True
 
-- name: Retart Apache
+- name: Restart Apache
   become: yes
   service:
     name: apache2
