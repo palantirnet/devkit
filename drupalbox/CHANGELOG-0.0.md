@@ -4,9 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [UNRELEASED]
 
-### Fixes
+### Added
 
-- Fixes incorrect database privileges for drupal user
+- PHP XDebug
+
+### Fixed
+
+- Fixed incorrect database privileges for drupal user
 
 ## [0.1.1] - 2016-08-11
 
@@ -15,7 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added PHP Memcached extension
 - Allowed remote Mysql connections for 'drupal' user
 
-### Fixes
+### Fixed
 
 - Fixes issue with Solr and search_api_solr cores
 

@@ -13,6 +13,14 @@ php5_modules_enable:
   - mcrypt
   - memcached
 
+# xdebug
+php5_xdebug_enabled: false
+php5_xdebug_enabled_cli: false
+
+php_ini_xdebug_remote_enable: "true"
+php_ini_xdebug_remote_connect_back: 1
+php_ini_xdebug_remote_autostart: 0
+
 # Defaults are based on the Open Web Application Security Project
 # for more information, see
 # https://www.owasp.org/index.php/PHP_Configuration_Cheat_Sheet
@@ -65,7 +73,6 @@ php_ini_default_socket_timeout    : 60
 #[PHP misc]
 php_ini_mysqlnd_collect_memory_statistics: "false"
 php_ini_sendmail_path             : /bin/false
-php_ini_session_save_path         : /tmp
 
 #[PHP performance]
 php_ini_max_execution_time        : 60

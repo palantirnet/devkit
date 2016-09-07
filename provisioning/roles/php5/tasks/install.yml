@@ -1,0 +1,35 @@
+---
+- name: Add apt-repository
+  become: yes
+  apt_repository:
+    repo: "ppa:ondrej/php5-5.6"
+  tags: php5
+
+- name: Install PHP
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 86400
+  with_items:
+    - php-console-table
+    - php-pear
+    - php5-cli
+    - php5-common
+    - php5-dev
+    - libapache2-mod-php5
+  tags: php5
+
+- name: Install PHP Modules
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: php5_modules
+  tags: php5
+
+- name: Enable Modules
+  become: true
+  shell: "/usr/sbin/php5enmod {{ item }}"
+  with_items: php5_modules_enable
