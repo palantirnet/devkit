@@ -6,7 +6,7 @@ Devkit is the framework in which Palantir.net builds it's Vagrant boxes for proj
 
 - palantir/ubuntu1404
 - palantir/ubuntu1604
-- palantir/drupalbox
+- palantir/[drupalbox](drupalbox) - [Change Log](drupalbox/CHANGELOG-0.0.md)
 
 ## Docs
 
