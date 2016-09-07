@@ -35,7 +35,6 @@
     - { role: php7, when: ansible_distribution_version == '16.04' }
     - { role: composer }
     - { role: phpmyadmin }
-    - { role: drush }
     - { role: nodejs }
     - { role: phantomjs }
     - { role: duplicity }

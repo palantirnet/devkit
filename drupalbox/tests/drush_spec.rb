@@ -1,6 +1,9 @@
 require_relative 'spec_helper.rb'
 
 describe file('/home/vagrant/.config/composer/vendor/bin/drush') do
-    it { should exist }
-    it { should be_executable }
+    it { should_not exist }
+end
+
+describe package('drush') do
+    it { should_not be_installed }
 end
