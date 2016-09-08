@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+### Fixed
+
+## [0.2.0] - 2016-09-07
+
+### Added
+
 - PHP XDebug
 
 ### Fixed
