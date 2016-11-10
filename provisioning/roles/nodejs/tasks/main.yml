@@ -1,8 +1,10 @@
 ---
 - name: NodeJS | Add apt key
   sudo: yes
-  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-           state=present
+  # Workaround for Ansible 2.0 (fixed in 2.2)
+  shell: "/usr/bin/curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | /usr/bin/apt-key add -"
+  #apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  #         state=present
   tags: nodejs
 
 - name: NodeJS | Add apt repository
