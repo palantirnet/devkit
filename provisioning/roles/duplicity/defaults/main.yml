@@ -5,7 +5,7 @@ duplicity_s3_bucket: ~
 duplicity_profiles:
    - alias: vagrant-files
      s3_target: "s3://s3.amazonaws.com/{{ duplicity_s3_bucket }}/files"
-     s3_source: /var/www/{{ hostname }}/web/sites/default/files
+     s3_source: "/var/www/{{ hostname }}/web/sites/default/files"
    - alias: vagrant-database
      s3_target: "s3://s3.amazonaws.com/{{ duplicity_s3_bucket }}/database"
-     s3_source: /var/www/{{ hostname }}/files/database
+     s3_source: "/var/www/{{ hostname }}/files/database"
