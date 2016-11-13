@@ -9,6 +9,7 @@ system_packages:
   - python-software-properties
   - python-pip
   - libyaml-0-2
+  - software-properties-common
 system_packages_backports:
   - jq
 
