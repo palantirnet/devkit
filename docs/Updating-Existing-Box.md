@@ -1,6 +1,6 @@
 # Devkit
 
-*** We cannot push builts to [Atlas since it does not support](https://github.com/mitchellh/packer/issues/2598) `--var-file`, [even though the documentation says it does](https://www.packer.io/docs/command-line/push.html#_var).
+*** We cannot push builds to [Atlas since it does not support](https://github.com/mitchellh/packer/issues/2598) `-var-file`, [even though the documentation says it does](https://www.packer.io/docs/command-line/push.html#_var).
 
 ## Updating an existing box
 
