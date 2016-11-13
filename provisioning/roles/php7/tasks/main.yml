@@ -15,13 +15,13 @@
 - name: Install PHP Modules
   sudo: true
   apt: name={{ item }} state=latest
-  with_items: php7_modules
+  with_items: "{{ php7_modules }}"
   tags: php7
 
 - name: Enable Modules
   sudo: true
   shell: /usr/sbin/phpenmod {{ item }}
-  with_items: php7_modules_enable
+  with_items: "{{ php7_modules_enable }}"
   tags: php7
 
 - name: Update php.ini (cli)

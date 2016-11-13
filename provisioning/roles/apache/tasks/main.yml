@@ -7,13 +7,13 @@
 - name: Apache | Install Apache Modules
   sudo: yes
   apache2_module: state=present name={{ item }}
-  with_items: apache_modules
+  with_items: "{{ apache_modules }}"
   tags: apache
 
 - name: Apache | Enable Modules
   sudo: yes
   command: /usr/sbin/a2enmod {{ item }}
-  with_items: apache_modules
+  with_items: "{{ apache_modules }}"
   tags: apache
 
 - name: Apache | Stat 000-default.conf

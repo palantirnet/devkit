@@ -2,13 +2,13 @@
 - name: Users | Create Groups
   sudo: yes
   group: name={{ item }}
-  with_items: users.groups
+  with_items: "{{ users.groups }}"
   tags: users
 
 - name: Users | Create Per-user Group
   sudo: yes
   group: name={{ item.id }}
-  with_items: users.users
+  with_items: "{{ users.users }}"
   tags: users
 
 - name: Users | Create Users
@@ -20,7 +20,7 @@
         password="{{ item.password if item.password is defined else 'no' }}"
         comment="{{ item.comment|default('') }}"
         createhome=yes
-  with_items: users.users
+  with_items: "{{ users.users }}"
   tags: users
 
 - name: Users | Authorized keys
