@@ -219,7 +219,7 @@
     "iso_checksum_type": "sha1",
     "custom_script": ".",
     "ftp_proxy": "{{env `ftp_proxy`}}",
-    "headless": "",
+    "headless": "true",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
     "install_vagrant_key": "true",
