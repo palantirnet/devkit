@@ -1,6 +1,6 @@
 ---
 - name: Drush | Remove apt version
-  sudo: yes
+  become: yes
   apt: name=drush state=absent
   tags: drush
 

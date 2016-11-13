@@ -1,5 +1,5 @@
 ---
 # handlers file for php-composer
 - name: composer global update
-  sudo: yes
+  become: yes
   shell: "{{ composer_path }} global update --no-interaction --no-ansi"

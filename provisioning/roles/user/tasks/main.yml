@@ -1,18 +1,18 @@
 ---
 - name: Users | Create Groups
-  sudo: yes
+  become: yes
   group: name={{ item }}
   with_items: "{{ users.groups }}"
   tags: users
 
 - name: Users | Create Per-user Group
-  sudo: yes
+  become: yes
   group: name={{ item.id }}
   with_items: "{{ users.users }}"
   tags: users
 
 - name: Users | Create Users
-  sudo: yes
+  become: yes
   user: name="{{ item.id }}"
         group="{{ item.id }}"
         groups="{{ item.groups|join(',') }}"
@@ -24,7 +24,7 @@
   tags: users
 
 - name: Users | Authorized keys
-  sudo: yes
+  become: yes
   authorized_key: user={{ item.0.id }} key="{{ item.1 }}"
   with_subelements:
     - users.users
@@ -32,7 +32,7 @@
   tags: users
 
 - name: Users | Deployer passwordless sudo
-  sudo: yes
+  become: yes
   lineinfile: dest=/etc/sudoers
               regexp="^deployer ALL\="
               line="deployer ALL=(ALL) NOPASSWD:ALL"

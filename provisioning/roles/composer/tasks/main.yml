@@ -1,12 +1,12 @@
 ---
 - name: Composer | Install Composer
-  sudo: yes
+  become: yes
   shell: curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar {{ composer_path }}
          creates={{ composer_path }}
   tags: composer
 
 - name: Composer | self-update
-  sudo: yes
+  become: yes
   shell: composer self-update
   tags: composer
 

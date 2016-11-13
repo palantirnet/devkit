@@ -1,18 +1,18 @@
 ---
 - name: Git | Remove apt git
-  sudo: yes
+  become: yes
   apt: name=git state=absent
   tags: git
 
 - name: Git | Git-core ppa
-  sudo: yes
+  become: yes
   apt_repository: repo=ppa:git-core/ppa
                   state=present
                   update_cache=yes
   tags: Git
 
 - name: Git | Install Git v2
-  sudo: yes
+  become: yes
   apt: name=git
        update_cache=yes
        state=present
