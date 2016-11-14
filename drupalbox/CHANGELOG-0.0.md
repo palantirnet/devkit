@@ -8,6 +8,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [0.2.2] - 2016-11-14
+
+### Fixed
+
+- Added missing PHP 5.6 mbstring extension
+
 ## [0.2.1] - 2016-11-14
 
 ### Fixed
