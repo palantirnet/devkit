@@ -1,56 +1,56 @@
 ---
 - name: PhantomJS | Install firefox
-  sudo: yes
+  become: yes
   apt: pkg=iceweasel
        state=installed
        update-cache=yes
   tags: phantomjs
 
 - name: PhantonJS | Install fontconfig
-  sudo: yes
+  become: yes
   apt: pkg=fontconfig
        state=installed
   tags: phantonjs
 
 - name: PhantomJS | Create home directory
-  sudo: yes
+  become: yes
   file: path=/usr/local/src/phantomjs
         state=directory
   tags: phantomjs
 
 - name: PhantomJS | Download phantomjs
-  sudo: yes
+  become: yes
   get_url: url=https://bitbucket.org/ariya/phantomjs/downloads/{{ phantomjs }}.tar.bz2
            dest=/usr/local/src/phantomjs/{{ phantomjs }}.tar.bz2
   tags: phantomjs
 
 - name: PhantomJS | Untar phantomjs
-  sudo: yes
+  become: yes
   shell: tar xjf {{ phantomjs }}.tar.bz2
          chdir=/usr/local/src/phantomjs
          creates=/usr/local/src/{{ phantomjs }}
   tags: phantomjs
 
 - name: PhantomJS | Symlink the phantomjs executable
-  sudo: yes
+  become: yes
   file: dest=/usr/local/bin/phantomjs
         src=/usr/local/src/phantomjs/{{ phantomjs }}/bin/phantomjs
         state=link
   tags: phantomjs
 
 - name: PhantomJS | Upstart PhantomJS
-  sudo: yes
+  become: yes
   template: src=upstart/phantomjs.conf.j2 dest=/etc/init/phantomjs.conf
   when: ansible_distribution_version == '14.04'
   tags: phantomjs
 
 - name: PhantomJS | Systemd PhantomJS
-  sudo: yes
+  become: yes
   template: src=systemd/phantomjs.service.j2 dest=/lib/systemd/system/phantomjs.service
   when: ansible_distribution_version == '16.04'
   tags: phantomjs
 
 - name: PhantomJS | Start PhantomJS
-  sudo: yes
+  become: yes
   service: name=phantomjs enabled=yes state=restarted
   tags: phantomjs

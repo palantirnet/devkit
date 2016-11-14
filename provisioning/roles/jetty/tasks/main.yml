@@ -16,10 +16,7 @@
 
 - name: Jetty | Install Jetty
   become: yes
-  apt:
-    pkg: "{{ item }}"
-    state: installed
-    update_cache: yes
+  apt: pkg={{ item }} state=installed update_cache=yes
   with_items: "{{ jetty_packages }}"
   tags: jetty
 

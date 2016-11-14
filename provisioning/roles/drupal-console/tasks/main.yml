@@ -5,7 +5,7 @@
   tags: drupal-console
 
 - name: Drupal Console | Download
-  sudo: yes
+  become: yes
   get_url: url=https://drupalconsole.com/installer
            dest=/usr/local/bin/drupal
            mode=u+rwx,g+rx,a+rx

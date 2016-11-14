@@ -1,11 +1,11 @@
 ---
 - name: MySQL | Install Server
-  sudo: yes
+  become: yes
   apt: pkg=mysql-server state=installed
   tags: mysql-server
 
 - name: MySQL | Update my.cnf
-  sudo: yes
+  become: yes
   template: src=14.04/my.cnf dest=/etc/mysql/my.cnf
   notify:
     - restart mysql
@@ -13,7 +13,7 @@
   tags: mysql-server
 
 - name: MySQL | Update my.cnf
-  sudo: yes
+  become: yes
   template: src=16.04/mysqld.cnf dest=/etc/mysql/mysql.conf.d/mysqld.cnf
   notify:
     - restart mysql

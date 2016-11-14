@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+- Updated PHP 5.6 PPA source and packages
+
 ## [0.2.0] - 2016-09-07
 
 ### Added

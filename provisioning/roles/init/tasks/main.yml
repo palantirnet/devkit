@@ -1,18 +1,18 @@
 ---
 - name: Init | Set the hostname in /etc/hostname
-  sudo: yes
+  become: yes
   shell: echo {{ hostname }} > /etc/hostname
   when: hostname is defined
   tags: init
 
 - name: Init | Set the hostname
-  sudo: yes
+  become: yes
   shell: hostname {{ hostname }}
   when: hostname is defined
   tags: init
 
 - name: Init | Update /etc/hosts
-  sudo: yes
+  become: yes
   lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1'
               line='127.0.0.1 localhost {{ hostname }}'
               owner=root
@@ -21,12 +21,12 @@
   tags: init
 
 - name: Init | Configure the timezone
-  sudo: yes
+  become: yes
   template: src=timezone.j2 dest=/etc/timezone
   tags: init
 
 - name: Init | More Configure the timezone
-  sudo: yes
+  become: yes
   file: src=/usr/share/zoneinfo/{{ timezone }}
         dest=/etc/localtime
         state=link

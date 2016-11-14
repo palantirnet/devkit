@@ -1,19 +1,19 @@
 ---
 - name: Apache | Install Apache
-  sudo: yes
+  become: yes
   apt: pkg=apache2 state=latest
   tags: apache
 
 - name: Apache | Install Apache Modules
-  sudo: yes
+  become: yes
   apache2_module: state=present name={{ item }}
-  with_items: apache_modules
+  with_items: "{{ apache_modules }}"
   tags: apache
 
 - name: Apache | Enable Modules
-  sudo: yes
+  become: yes
   command: /usr/sbin/a2enmod {{ item }}
-  with_items: apache_modules
+  with_items: "{{ apache_modules }}"
   tags: apache
 
 - name: Apache | Stat 000-default.conf
@@ -22,13 +22,13 @@
   tags: apache
 
 - name: Apache | Disable 000-default
-  sudo: yes
+  become: yes
   shell: /usr/sbin/a2dissite 000-default
   when: apache_default_site.stat.exists == True
   tags: apache
 
 - name: Apache | Remove 000-default.conf
-  sudo: yes
+  become: yes
   file: path=/etc/apache2/sites-available/000-default.conf state=absent
   when: apache_default_site.stat.exists == True
   notify: restart apache
@@ -39,20 +39,20 @@
   register: apache_default_ssl_site
 
 - name: Apache | Disable default-ssl.conf
-  sudo: yes
+  become: yes
   shell: /usr/sbin/a2dissite default-ssl.conf
   when: apache_default_ssl_site.stat.exists == True
   tags: apache
 
 - name: Apache | Remove default-ssl.conf
-  sudo: yes
+  become: yes
   file: path=/etc/apache2/sites-available/default-ssl.conf state=absent
   when: apache_default_ssl_site.stat.exists == True
   notify: restart apache
   tags: apache
 
 - name: Apache | Remove html dir
-  sudo: yes
+  become: yes
   file: path=/var/www/html
         state=absent
   tags: apache

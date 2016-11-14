@@ -2,6 +2,15 @@
 
 Devkit is the framework in which Palantir.net builds it's Vagrant boxes for projects. Devkit uses many tools including Packer, Ansible, Atlas, Vagrant, and ServerSpec.
 
+## Development Requirements
+
+- Packer 0.11.0 (`brew install packer`)
+- Ansible 2.0 (`brew install homebrew/versions/ansible20`, or maybe `brew switch ansible 2.0.2.0`)
+- VMWare
+- VirtualBox
+- Vagrant
+- Vagrant VMWare plugin
+
 ## Current Boxes
 
 - palantir/ubuntu1404

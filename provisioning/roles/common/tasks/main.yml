@@ -1,35 +1,35 @@
 ---
 - name: Common | Update apt cache
-  sudo: yes
+  become: yes
   apt: update-cache=yes
   tags: common
 
 - name: Common | Install System Packages
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=installed
-  with_items: system_packages
+  with_items: "{{ system_packages }}"
   tags: common
 
 - name: Common | Install System Packages From Backports
-  sudo: yes
+  become: yes
   apt: pkg={{ item }}
        default_release=trusty-backports
        state=installed
-  with_items: system_packages_backports
+  with_items: "{{ system_packages_backports }}"
   when: ansible_distribution_version == '14.04'
   tags: common
 
 - name: Common | Install System Packages From Backports
-  sudo: yes
+  become: yes
   apt: pkg={{ item }}
        default_release=xenial-backports
        state=installed
-  with_items: system_packages_backports
+  with_items: "{{ system_packages_backports }}"
   when: ansible_distribution_version == '16.04'
   tags: common
 
 - name: Common | Install Python Packages
-  sudo: yes
+  become: yes
   pip: name={{ item }}
-  with_items: pip_packages
+  with_items: "{{ pip_packages }}"
   tags: common

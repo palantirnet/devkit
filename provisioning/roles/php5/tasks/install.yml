@@ -2,7 +2,7 @@
 - name: Add apt-repository
   become: yes
   apt_repository:
-    repo: "ppa:ondrej/php5-5.6"
+    repo: "ppa:ondrej/php"
   tags: php5
 
 - name: Install PHP
@@ -15,10 +15,10 @@
   with_items:
     - php-console-table
     - php-pear
-    - php5-cli
-    - php5-common
-    - php5-dev
-    - libapache2-mod-php5
+    - php5.6-cli
+    - php5.6-common
+    - php5.6-dev
+    - libapache2-mod-php5.6
   tags: php5
 
 - name: Install PHP Modules
@@ -26,10 +26,10 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: php5_modules
+  with_items: "{{ php5_modules }}"
   tags: php5
 
 - name: Enable Modules
   become: true
-  shell: "/usr/sbin/php5enmod {{ item }}"
-  with_items: php5_modules_enable
+  shell: "/usr/sbin/phpenmod {{ item }}"
+  with_items: "{{ php5_modules_enable }}"

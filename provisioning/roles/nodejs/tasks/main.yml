@@ -1,12 +1,14 @@
 ---
 - name: NodeJS | Add apt key
-  sudo: yes
-  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-           state=present
+  become: yes
+  # Workaround for Ansible 2.0 (fixed in 2.2)
+  shell: "/usr/bin/curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | /usr/bin/apt-key add -"
+  #apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  #         state=present
   tags: nodejs
 
 - name: NodeJS | Add apt repository
-  sudo: yes
+  become: yes
   apt_repository: repo='{{ item }}'
                   state=present
   with_items:
@@ -15,12 +17,12 @@
   tags: nodejs
 
 - name: NodeJS | Update apt cache
-  sudo: yes
+  become: yes
   apt: update-cache=yes
   tags: nodejs
 
 - name: NodeJS | Install NodeJS
-  sudo: yes
+  become: yes
   apt: pkg=nodejs
        state=present
   tags: nodejs
