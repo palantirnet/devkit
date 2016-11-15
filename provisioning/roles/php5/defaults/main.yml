@@ -9,6 +9,7 @@ php5_modules:
   - php5.6-sqlite3
   - php5.6-memcached
   - php5.6-mbstring
+  - php5.6-xml
 
 php5_modules_enable:
   - mcrypt
