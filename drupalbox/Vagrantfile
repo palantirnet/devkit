@@ -1,4 +1,4 @@
-%w{ vagrant-hostmanager vagrant-auto_network vagrant-serverspec }.each do |plugin|
+%w{ vagrant-hostmanager vagrant-auto_network }.each do |plugin|
     unless Vagrant.has_plugin?(plugin)
         raise "#{plugin} plugin is not installed. Please install with: vagrant plugin install #{plugin}"
     end
