@@ -8,6 +8,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [0.2.3] - 2016-11-17
+
+### Fixed
+
+- Added missing PHP modules that were part of the previous `php-common` package:
+  - `php5.6-bcmath`
+  - `php5.6-bz2`
+  - `php5.6-dba`
+  - `php5.6-soap`
+  - `php5.6-xml`
+  - `php5.6-zip`
+
 ## [0.2.2] - 2016-11-14
 
 ### Fixed
