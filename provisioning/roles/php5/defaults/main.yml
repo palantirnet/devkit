@@ -53,7 +53,7 @@ php_ini_allow_webdav_methods      : "false"
 php_ini_file_uploads              : "true"
 php_ini_upload_tmp_dir            : ""
 php_ini_max_file_uploads          : 20
-php_ini_upload_max_filesize       : 10M
+php_ini_upload_max_filesize       : 64M
 
 #[PHP executable handling]
 php_ini_enable_dl                 : "true"
