@@ -1,6 +1,6 @@
 ---
 solr_mirror: https://archive.apache.org/dist/lucene/solr/
-solr_version: 4.9.1
+solr_version: 4.5.1
 
 slf4j_lib_path: "{{ solr_version_src_dir }}/example/lib/ext"
 
