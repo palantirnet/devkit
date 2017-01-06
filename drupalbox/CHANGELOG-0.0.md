@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+### Fixed
+
+## [0.2.4] - 2017-01-05
+
+### Added
+
 - Added the PECL YAML PHP extension to match [Acquia Cloud release 1.96](https://docs.acquia.com/release-note/acquia-cloud-196), which [caused some problems](https://docs.acquia.com/article/pecl-yaml-serialization-errors)
 
 ### Fixed
