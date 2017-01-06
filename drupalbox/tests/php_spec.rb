@@ -63,6 +63,12 @@ if os[:release] == '14.04'
   context php_extension('memcached') do
     it { should be_loaded }
   end
+
+  # The yaml extension is installed from pecl, not apt, so here we just check
+  # that it's enabled.
+  context php_extension('yaml') do
+    it { should be_loaded }
+  end
 end
 
 describe 'PHP config parameters' do
