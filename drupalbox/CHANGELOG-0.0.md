@@ -6,7 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Added the PECL YAML PHP extension to match [Acquia Cloud release 1.96](https://docs.acquia.com/release-note/acquia-cloud-196), which [caused some problems](https://docs.acquia.com/article/pecl-yaml-serialization-errors)
+
 ### Fixed
+
+- Downgraded Solr from 4.9.1 to 4.5.1 in order to match Acquia Search
+- Fixed serverspec tests for PHP extensions
 
 ## [0.2.3] - 2016-11-17
 
