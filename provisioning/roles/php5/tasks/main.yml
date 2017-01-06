@@ -7,6 +7,8 @@
 - include: xdebug.yml
   when: php5_xdebug_enabled == True
 
+- include: pecl.yml
+
 - name: Restart Apache
   become: yes
   service:
