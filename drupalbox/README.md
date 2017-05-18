@@ -14,10 +14,10 @@
 
 ### Mailhog
 
-Mailhog's smtp service listens on port 1025 and http service listens on port 8025
+Mailhog's smtp service listens on port 1025, and its http service listens on port 8025; you can find the web UI at `http://yoursite.local:8025`
 
 ### Solr
 
-Solr is installed but disabled by default. It's installed to `/usr/share/solr/current`.
+Solr is installed to `/usr/share/solr/current` with two default cores, `drupal7` and `drupal8`. Solr runs on port 8983, and the web UI can be found at `http://yoursite.local:8983/solr`.
 
-In order to use it, you must install a Solr "core" to `/usr/share/solr/current/core/` and update the `/usr/share/solr/current/solr.xml` file with the new core. You must enable/start Jetty.
+In order to use it, you need to start Jetty, which can be managed with [palantirnet/the-vagrant](https://github.com/palantirnet/the-vagrant) in the `Vagrantfile`.
