@@ -17,7 +17,6 @@ end
   json
   mbstring
   mcrypt
-  mysql
   sqlite3
   xml
 }.each do |pkg|
@@ -67,6 +66,26 @@ if os[:release] == '14.04'
   # The yaml extension is installed from pecl, not apt, so here we just check
   # that it's enabled.
   context php_extension('yaml') do
+    it { should be_loaded }
+  end
+
+  # The MySQL extension uses different naming patterns between PHP 5 and 7.
+  describe package("php5.6-mysql") do
+    it { should be_installed }
+  end
+
+  context php_extension("mysql") do
+    it { should be_loaded }
+  end
+end
+
+if os[:release] == '16.04'
+  # The MySQL extension uses different naming patterns between PHP 5 and 7.
+  describe package("php7.0-mysql") do
+    it { should be_installed }
+  end
+
+  context php_extension("mysqli") do
     it { should be_loaded }
   end
 end

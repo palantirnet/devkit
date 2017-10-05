@@ -8,6 +8,12 @@ php7_modules:
   - php-mysql
   - php-sqlite3
   - php-memcached
+  - php-bcmath
+  - php-bz2
+  - php7.0-dba
+  - php-soap
+  - php-xml
+  - php-zip
 
 php7_modules_enable:
   - mcrypt

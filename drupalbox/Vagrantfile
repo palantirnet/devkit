@@ -5,9 +5,8 @@
 end
 
 Vagrant.configure("2") do |config|
-  #config.vm.box = "palantir/drupalbox"
-  config.vm.box = "palantir/ubuntu1404"
-  #config.vm.box_version = ">= 2.0.0, < 3.0.0"
+  config.vm.box = "geerlingguy/ubuntu1604"
+  config.vm.box_version = "~> 1.0"
   config.vm.hostname = "drupalbox.local"
 
   config.vm.network "private_network", :auto_network => true
