@@ -7,5 +7,5 @@
 1. Update the box version in the packer template file.
 1. From the repository root run the following command:
 ```
-$ packer build -var-file=drupalbox/ubuntu1604.json drupalbox/drupalbox.json
+$ packer build -var-file=drupalbox/ubuntu1404.json drupalbox/drupalbox.json
 ```
