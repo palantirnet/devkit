@@ -15,8 +15,6 @@ end
   mcrypt
   sqlite3
   xml
-  memcached
-  xdebug
 }.each do |pkg|
   # The PHP extension's package should be installed from apt.
   describe package("php7.0-#{pkg}") do
@@ -29,17 +27,27 @@ end
   end
 end
 
-# The MySQL extension uses different naming patterns between PHP 5 and 7.
+# The memcached extension uses a package naming pattern.
+describe package("php-memcached") do
+  it { should be_installed }
+end
+context php_extension("memcached") do
+  it { should be_loaded }
+end
+
+# The MySQL extension uses a different name for the package vs. the extension.
 describe package("php7.0-mysql") do
   it { should be_installed }
 end
-
 context php_extension("mysqli") do
   it { should be_loaded }
 end
 
-# XDebug should be enabled for Apache, but disabled for the CLI
-describe file('/etc/php/7.0/apache2/conf.d/20-xdebug.ini') do
+# XDebug should be enabled for Apache, but disabled for the CLI.
+describe package("php-xdebug") do
+  it { should be_installed }
+end
+describe file('/etc/php/7.0/fpm/conf.d/20-xdebug.ini') do
     it { should be_symlink }
 end
 describe file('/etc/php/7.0/cli/conf.d/20-xdebug.ini') do
