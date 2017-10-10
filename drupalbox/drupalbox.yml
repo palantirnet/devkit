@@ -23,18 +23,14 @@
     - { role: common }
     - { role: openssh }
     - { role: git }
-    #- { role: rvm_io.rvm1-ruby, tags: ruby, become: yes }
     - { role: memcached }
     - { role: mailhog }
-    - { role: jetty, when: ansible_distribution_version == '14.04' }
-    - { role: jetty9, when: ansible_distribution_version == '16.04' }
     - { role: jetty9 }
     - { role: solr }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }
-    - { role: php5, when: ansible_distribution_version == '14.04' }
-    - { role: php7, when: ansible_distribution_version == '16.04' }
+    - { role: php7 }
     - { role: composer }
     - { role: phpmyadmin }
     - { role: nodejs }
