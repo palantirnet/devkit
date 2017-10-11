@@ -131,6 +131,25 @@
   ],
   "provisioners": [
     {
+      "type": "shell",
+      "script": "script/update.sh",
+      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "expect_disconnect": true,
+      "pause_before": "60s",
+      "environment_vars": [
+        "UPDATE={{user `update`}}"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "script/vagrant.sh",
+        "script/sshd.sh",
+        "script/virtualbox.sh",
+        "script/vmware.sh",
+        "script/cmtool.sh"
+      ],
+      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "environment_vars": [
         "CM={{user `cm`}}",
         "CM_VERSION={{user `cm_version`}}",
@@ -144,17 +163,7 @@
         "ftp_proxy={{user `ftp_proxy`}}",
         "rsync_proxy={{user `rsync_proxy`}}",
         "no_proxy={{user `no_proxy`}}"
-      ],
-      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-      "scripts": [
-        "script/update.sh",
-        "script/vagrant.sh",
-        "script/sshd.sh",
-        "script/virtualbox.sh",
-        "script/vmware.sh",
-        "script/cmtool.sh"
-      ],
-      "type": "shell"
+      ]
     },
     {
       "type": "ansible-local",
