@@ -23,6 +23,7 @@
     - { role: common }
     - { role: openssh }
     - { role: git }
+    - { role: rvm_io.rvm1-ruby, tags: ruby, become: yes }
     - { role: memcached }
     - { role: mailhog }
     - { role: jetty9 }
