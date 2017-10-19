@@ -1,10 +1,8 @@
 ---
 - name: NodeJS | Add apt key
   become: yes
-  # Workaround for Ansible 2.0 (fixed in 2.2)
-  shell: "/usr/bin/curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | /usr/bin/apt-key add -"
-  #apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-  #         state=present
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+           state=present
   tags: nodejs
 
 - name: NodeJS | Add apt repository
@@ -12,8 +10,20 @@
   apt_repository: repo='{{ item }}'
                   state=present
   with_items:
-    - 'deb https://deb.nodesource.com/node_0.12 trusty main'
-    - 'deb-src https://deb.nodesource.com/node_0.12 trusty main'
+    - 'deb https://deb.nodesource.com/node_5.x {{ node_ubuntu_distro }} main'
+    - 'deb-src https://deb.nodesource.com/node_5.x {{ node_ubuntu_distro }} main'
+  tags: nodejs
+
+- name: NodeJS | Yarn | Add apt key
+  become: yes
+  apt_key: url=https://dl.yarnpkg.com/debian/pubkey.gpg
+           state=present
+  tags: nodejs
+
+- name: NodeJS | Yarn | Add apt repository
+  become: yes
+  apt_repository: repo='deb https://dl.yarnpkg.com/debian/ stable main'
+                  state=present
   tags: nodejs
 
 - name: NodeJS | Update apt cache
@@ -21,8 +31,11 @@
   apt: update-cache=yes
   tags: nodejs
 
-- name: NodeJS | Install NodeJS
+- name: NodeJS | Install NodeJS and Yarn
   become: yes
-  apt: pkg=nodejs
+  apt: pkg='{{ item }}'
        state=present
+  with_items:
+    - nodejs
+    - yarn
   tags: nodejs
