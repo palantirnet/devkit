@@ -1,5 +1,0 @@
----
-
-- include: 'rvm.yml'
-- include: 'rubies.yml'
-- include: 'gems.yml'
