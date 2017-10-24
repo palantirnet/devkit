@@ -6,7 +6,7 @@ end
 
 describe "'drupal' database exists" do
   describe command(
-    "echo \"SHOW DATABASES LIKE 'drupal'\" | mysql"
+    "echo \"SHOW DATABASES LIKE 'drupal'\" | mysql -udrupal -pdrupal"
   ) do
     its(:stdout) { should match /drupal/ }
   end
