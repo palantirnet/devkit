@@ -106,26 +106,11 @@
         "vagrantfile_template": "drupalbox/Vagrantfile"
       },
       {
-        "type": "atlas",
-        "artifact": "palantir/drupalbox",
-        "artifact_type": "vagrant.box",
-        "only": ["vmware-iso"],
-        "metadata": {
-          "provider": "vmware_desktop",
-          "version": "{{ user `version`}}",
-          "created_at": "{{timestamp}}"
-        }
-      },
-      {
-        "type": "atlas",
-        "artifact": "palantir/drupalbox",
-        "artifact_type": "vagrant.box",
-        "only": ["virtualbox-iso"],
-        "metadata": {
-          "provider": "virtualbox",
-          "version": "{{ user `version`}}",
-          "created_at": "{{timestamp}}"
-        }
+        "type": "vagrant-cloud",
+        "box_tag": "palantir/drupalbox",
+        "access_token": "{{ user `cloud_token` }}",
+        "version": "{{ user `version` }}",
+        "no_release": true
       }
     ]
   ],
@@ -282,6 +267,8 @@
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": "true"
+    "update": "true",
+    "cloud_token": "{{ env `ATLAS_TOKEN` }}",
+    "version": "1.0.{{timestamp}}"
   }
 }
