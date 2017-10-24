@@ -135,7 +135,6 @@
       "script": "script/update.sh",
       "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "expect_disconnect": true,
-      "pause_before": "60s",
       "environment_vars": [
         "UPDATE={{user `update`}}"
       ]
@@ -148,6 +147,7 @@
         "script/virtualbox.sh"
       ],
       "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "pause_before": "60s",
       "environment_vars": [
         "CM={{user `cm`}}",
         "CM_VERSION={{user `cm_version`}}",
