@@ -109,8 +109,7 @@
         "type": "vagrant-cloud",
         "box_tag": "palantir/drupalbox",
         "access_token": "{{ user `cloud_token` }}",
-        "version": "{{ user `version` }}",
-        "no_release": true
+        "version": "{{ user `version` }}"
       }
     ]
   ],
