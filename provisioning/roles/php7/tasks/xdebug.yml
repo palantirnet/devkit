@@ -6,20 +6,21 @@
     state: latest
   tags: php7
 
+- name: Configure XDebug
+  become: yes
+  template:
+    src: xdebug.ini.j2
+    dest: /etc/php/7.0/mods-available/xdebug.ini
+  tags: php7
+
 - name: Enable XDebug
   become: true
   shell: "/usr/sbin/phpenmod xdebug"
+  when: php_xdebug_enabled == True
   tags: php7
 
 - name: Disable XDebug for cli
   become: true
   shell: "/usr/sbin/phpdismod -s cli xdebug"
   when: php_xdebug_enabled_cli == False
-  tags: php7
-
-- name: Configure XDebug
-  become: yes
-  template:
-    src: xdebug.ini.j2
-    dest: /etc/php/7.0/mods-available/xdebug.ini
   tags: php7

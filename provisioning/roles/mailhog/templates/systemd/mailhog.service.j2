@@ -1,11 +1,11 @@
 [Unit]
 Description=
 Documentation=
-User={{ mailhog_user }}
-Group={{ mailhog_group }}
 
 [Service]
 ExecStart={{ mailhog_home_dir }}/bin/mailhog
+User={{ mailhog_user }}
+Group={{ mailhog_group }}
 
 [Install]
 WantedBy=multi-user.target

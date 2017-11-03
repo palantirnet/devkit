@@ -1,0 +1,25 @@
+---
+- name: Update PECL channel
+  become: yes
+  command: pecl channel-update pecl.php.net
+
+# Ansible has a "pear" module that can manage pecl packages, but it can't
+# handle interactive prompts, which this module uses.
+- name: Install YAML extension from PECL
+  become: yes
+  shell: yes '' | pecl install yaml
+  args:
+    creates: /usr/lib/php/*/yaml.so
+  tags: php7
+
+- name: Add YAML extension config
+  become: yes
+  template:
+    src: yaml.ini.j2
+    dest: /etc/php/7.0/mods-available/yaml.ini
+  tags: php7
+
+- name: Enable YAML extension
+  become: yes
+  shell: "/usr/sbin/phpenmod yaml"
+  tags: php7

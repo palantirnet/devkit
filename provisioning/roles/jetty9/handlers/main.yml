@@ -1,0 +1,7 @@
+---
+  - name: Jetty | Restart jetty
+    become: yes
+    service:
+      name: "{{ jetty_service }}"
+      state: restarted
+    tags: jetty9

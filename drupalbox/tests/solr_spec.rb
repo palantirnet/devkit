@@ -8,6 +8,6 @@ describe file("/usr/share/solr/current") do
   it { should be_symlink }
 end
 
-describe file("/var/lib/jetty/webapps/solr") do
+describe file("/var/lib/jetty9/webapps/solr") do
   it { should be_symlink }
 end

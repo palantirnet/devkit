@@ -8,10 +8,25 @@ php7_modules:
   - php-mysql
   - php-sqlite3
   - php-memcached
+  - php7.0-mbstring
+  - php-bcmath
+  - php-bz2
+  - php7.0-dba
+  - php-soap
+  - php-xml
+  - php-zip
 
 php7_modules_enable:
   - mcrypt
   - memcached
+
+# xdebug
+php_xdebug_enabled: false
+php_xdebug_enabled_cli: false
+
+php_ini_xdebug_remote_enable: "true"
+php_ini_xdebug_remote_connect_back: 1
+php_ini_xdebug_remote_autostart: 0
 
 # Defaults are based on the Open Web Application Security Project
 # for more information, see

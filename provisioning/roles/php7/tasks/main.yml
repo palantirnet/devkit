@@ -30,5 +30,15 @@
   with_items:
     - /etc/php/7.0/cli/php.ini
     - /etc/php/7.0/fpm/php.ini
-  notify: restart apache
   tags: php7
+
+- include: pecl.yml
+
+- include: xdebug.yml
+
+- name: Restart Apache
+  become: yes
+  service:
+    name: apache2
+    state: restarted
+  tags: php5

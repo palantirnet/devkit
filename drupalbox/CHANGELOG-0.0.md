@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Software updates:
+  - Ubuntu 16.04.3
+  - PHP 7
+  - Jetty 9
+  - NodeJS 5
+
 ### Fixed
 
 ## [0.2.4] - 2017-01-05
