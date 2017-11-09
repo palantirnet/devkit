@@ -41,27 +41,8 @@
   when: mysql_has_blank_root_password.rc == 0
   tags: mysql-server
 
-- name: MySQL | Remove test database
-  mysql_db: name=test
-      login_host={{ mysql_host }}
-      login_user=root
-      login_password=
-      state=absent
-  when: mysql_has_blank_root_password.rc == 0
-  tags: mysql-server
-
-- name: MySQL | Update Root Password
-  mysql_user: name=root
-      host={{ item }}
-      password={{ mysql_root_pass }}
-      login_host={{ mysql_host }}
-      login_user=root
-      login_password=
-  with_items:
-    - "{{ ansible_hostname }}"
-    - "{{ ansible_fqdn }}"
-    - 127.0.0.1
-    - ::1
-    - localhost
+# Assume basic MySQL security is already managed if the root password is not blank.
+- name: MySQL | Secure Installation
+  include: mysql_secure_installation.yml
   when: mysql_has_blank_root_password.rc == 0
   tags: mysql-server
