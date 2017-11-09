@@ -6,6 +6,7 @@
   with_items:
     - php7.0-cli
     - php7.0-fpm
+    - libapache2-mod-php7.0
     - php-pear
     - php7.0-common
     - php7.0-dev
@@ -22,6 +23,11 @@
   become: yes
   shell: /usr/sbin/phpenmod {{ item }}
   with_items: "{{ php7_modules_enable }}"
+  tags: php7
+
+- name: Enable Apache Module
+  become: yes
+  command: /usr/sbin/a2enmod php7.0
   tags: php7
 
 - name: Update php.ini (cli)
