@@ -6,13 +6,21 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+### Fixed
+
+## [1.1.0] - 2017-11-09
+
+### Added
+
 - Software updates:
   - Ubuntu 16.04.3
   - PHP 7
   - Jetty 9
   - NodeJS 5
 
-### Fixed
+### Known Issues
+
+The Jetty9 service doesn't run.
 
 ## [0.2.4] - 2017-01-05
 
