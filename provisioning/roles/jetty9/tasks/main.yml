@@ -6,7 +6,7 @@
     state: present
   tags: jetty9
 
-- name: Jetty | Add jetty user
+- name: Jetty | Add Jetty user
   become: yes
   user:
     name: "{{ jetty_app_user }}"
@@ -39,6 +39,13 @@
     group: "{{ jetty_app_group }}"
     mode: 0644
   tags: jetty9
+
+- name: Jetty | Install updated Jetty service
+  become: yes
+  copy:
+    src: jetty.sh
+    dest: /etc/init.d/jetty9
+    mode: 0755
 
 - name: Jetty | Enable Jetty Service
   become: yes

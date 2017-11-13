@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+- Fixed the Jetty9 service
+
 ## [1.1.0] - 2017-11-09
 
 ### Added
