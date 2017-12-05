@@ -2,27 +2,28 @@
 - name: NodeJS | Add apt key
   become: yes
   # Workaround for Ansible 2.0 (fixed in 2.2)
+  # This approach is also required for Python < 2.7.9, and the default version
+  # of Python on Ubuntu 14.04 is 2.7.6.
   shell: "/usr/bin/curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | /usr/bin/apt-key add -"
-  #apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-  #         state=present
+  #apt_key:
+  #  url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  #  state: present
   tags: nodejs
 
 - name: NodeJS | Add apt repository
   become: yes
-  apt_repository: repo='{{ item }}'
-                  state=present
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
   with_items:
-    - 'deb https://deb.nodesource.com/node_0.12 trusty main'
-    - 'deb-src https://deb.nodesource.com/node_0.12 trusty main'
-  tags: nodejs
-
-- name: NodeJS | Update apt cache
-  become: yes
-  apt: update-cache=yes
+    - 'deb https://deb.nodesource.com/node_6.x trusty main'
+    - 'deb-src https://deb.nodesource.com/node_6.x trusty main'
   tags: nodejs
 
 - name: NodeJS | Install NodeJS
   become: yes
-  apt: pkg=nodejs
-       state=present
+  apt:
+    pkg: nodejs
+    state: present
+    update_cache: yes
   tags: nodejs
