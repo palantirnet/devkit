@@ -1,8 +1,8 @@
 {
   "boot_command_prefix": "<esc><esc><enter><wait>",
-  "iso_checksum": "3ffb7a3690ce9a07ac4a4d1b829f990681f7e47d",
-  "iso_name": "ubuntu-14.04.4-server-amd64.iso",
-  "iso_path": "iso",
-  "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.4-server-amd64.iso",
-  "version": "0.2.4"
+  "iso_checksum": "dde07d37647a1d2d9247e33f14e91acb10445a97578384896b4e1d985f754cc1",
+  "iso_checksum_type": "sha256",
+  "iso_name": "ubuntu-14.04.5-server-amd64.iso",
+  "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso",
+  "iso_path": "iso"
 }
