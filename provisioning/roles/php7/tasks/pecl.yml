@@ -16,7 +16,7 @@
   become: yes
   template:
     src: yaml.ini.j2
-    dest: /etc/php/7.0/mods-available/yaml.ini
+    dest: /etc/php/7.1/mods-available/yaml.ini
   tags: php7
 
 - name: Enable YAML extension
