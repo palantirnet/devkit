@@ -9,7 +9,9 @@ Devkit is a framework to build Vagrant boxes for our projects' development envir
 - VMWare
 - VirtualBox
 - Vagrant
-- Vagrant VMWare plugin
+- Vagrant plugins:
+  - `vagrant-vmware-fusion`
+  - `vagrant-serverspec`
 
 ## Current Boxes
 
