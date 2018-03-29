@@ -10,8 +10,8 @@
   apt_repository: repo='{{ item }}'
                   state=present
   with_items:
-    - 'deb https://deb.nodesource.com/node_5.x {{ node_ubuntu_distro }} main'
-    - 'deb-src https://deb.nodesource.com/node_5.x {{ node_ubuntu_distro }} main'
+    - 'deb https://deb.nodesource.com/node_9.x {{ node_ubuntu_distro }} main'
+    - 'deb-src https://deb.nodesource.com/node_9.x {{ node_ubuntu_distro }} main'
   tags: nodejs
 
 - name: NodeJS | Yarn | Add apt key
