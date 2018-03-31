@@ -4,12 +4,14 @@ Devkit is a framework to build Vagrant boxes for our projects' development envir
 
 ## Development Requirements
 
-- Packer 0.11.0
-- Ansible 2.0
+- Packer 1.2.1
+- Ansible 2.2
 - VMWare
 - VirtualBox
 - Vagrant
-- Vagrant VMWare plugin
+- Vagrant plugins:
+  - `vagrant-vmware-fusion`
+  - `vagrant-serverspec`
 
 ## Current Boxes
 
