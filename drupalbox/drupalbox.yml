@@ -30,8 +30,8 @@
       }
     - { role: memcached }
     - { role: mailhog }
-    - { role: jetty9 }
-    - { role: solr }
+    #- { role: jetty9 }
+    #- { role: solr }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }
