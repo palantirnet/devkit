@@ -104,13 +104,6 @@
         "keep_input_artifact": false,
         "output": "drupalbox_{{.Provider}}.box",
         "vagrantfile_template": "drupalbox/Vagrantfile"
-      },
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "palantir/drupalbox",
-        "access_token": "{{ user `cloud_token` }}",
-        "version": "{{ user `version` }}",
-        "no_release": "{{ user `no_release` }}",
       }
     ]
   ],
@@ -267,9 +260,6 @@
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": "true",
-    "cloud_token": "{{ env `ATLAS_TOKEN` }}",
-    "version": "1.1.{{timestamp}}",
-    "no_release": true,
+    "update": "true"
   }
 }
