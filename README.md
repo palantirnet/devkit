@@ -24,6 +24,7 @@ Devkit is a framework to build Vagrant boxes for our projects' development envir
 - [How Devkit Works](docs/How-Devkit-Works.md)
 - [Updating an existing box](docs/Updating-Existing-Box.md)
 - [Writing tests](docs/Writing-Tests.md)
+- [Development tips](docs/Development-Workflow.md)
 
 ## Support
 
