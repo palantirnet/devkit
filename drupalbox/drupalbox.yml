@@ -23,6 +23,19 @@
       }
     - { role: memcached }
     - { role: mailhog }
+    - {
+        role: geerlingguy.java,
+        become: yes
+      }
+    - {
+        role: geerlingguy.solr,
+        solr_version: "4.5.1",
+        become: yes
+      }
+    - {
+        role: geerlingguy.solr-cleanup,
+        become: yes
+      }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }
