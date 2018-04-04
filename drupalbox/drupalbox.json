@@ -109,7 +109,8 @@
         "type": "vagrant-cloud",
         "box_tag": "palantir/drupalbox",
         "access_token": "{{ user `cloud_token` }}",
-        "version": "{{ user `version` }}"
+        "version": "{{ user `version` }}",
+        "no_release": "{{ user `no_release` }}",
       }
     ]
   ],
@@ -268,6 +269,7 @@
     "ssh_username": "vagrant",
     "update": "true",
     "cloud_token": "{{ env `ATLAS_TOKEN` }}",
-    "version": "1.0.{{timestamp}}"
+    "version": "1.1.{{timestamp}}",
+    "no_release": true,
   }
 }
