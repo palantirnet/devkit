@@ -6,8 +6,6 @@
     rvm1_install_path: /home/vagrant/.rvm
     php_xdebug_enabled: true
     php_ini_sendmail_path: "/usr/local/bin/mhsendmail"
-    jetty_server_enabled: false
-    jetty_server_java_options: "-Xmx256m -Djava.awt.headless=true -Dsolr.solr.home=/usr/share/solr/current"
     solr_cores:
       - name: drupal7
         folder: search_api_solr-7x-1.11-4.x
@@ -30,7 +28,6 @@
       }
     - { role: memcached }
     - { role: mailhog }
-    #- { role: jetty9 }
     #- { role: solr }
     - { role: apache }
     - { role: mysql-client }
