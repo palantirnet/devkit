@@ -6,11 +6,6 @@
     rvm1_install_path: /home/vagrant/.rvm
     php_xdebug_enabled: true
     php_ini_sendmail_path: "/usr/local/bin/mhsendmail"
-    solr_cores:
-      - name: drupal7
-        folder: search_api_solr-7x-1.11-4.x
-      - name: drupal8
-        folder: search_api_solr-8x-1.0-alpha5-4.x
   vars_files:
     - vars/default/common.yml
     - vars/dev/mysql.yml
@@ -28,7 +23,6 @@
       }
     - { role: memcached }
     - { role: mailhog }
-    #- { role: solr }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }
