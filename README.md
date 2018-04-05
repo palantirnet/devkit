@@ -17,12 +17,12 @@ $> make drupalbox
 - Vagrant
 - Vagrant plugins:
   - `vagrant-vmware-fusion`
+  - `vagrant-auto_network`
+  - `vagrant-hostmanager`
   - `vagrant-serverspec`
 
 ## Current Boxes
 
-- palantir/ubuntu1404
-- palantir/ubuntu1604
 - palantir/[drupalbox](drupalbox) - [Change Log](drupalbox/CHANGELOG-0.0.md)
 
 ## Docs
