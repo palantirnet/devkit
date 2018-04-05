@@ -26,3 +26,13 @@
   service:
     name: solr
     enabled: yes
+
+- name: Solr Cleanup | Download Solr configuration for Drupal 7
+  get_url:
+    url: https://ftp.drupal.org/files/projects/search_api_solr-7.x-1.12.tar.gz
+    dest: /tmp/search_api_solr-7.x-1.12.tar.gz
+
+- name: Solr Cleanup | Download Solr configuration for Drupal 8
+  get_url:
+    url: https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.2.tar.gz
+    dest: /tmp/search_api_solr-8.x-1.2.tar.gz
