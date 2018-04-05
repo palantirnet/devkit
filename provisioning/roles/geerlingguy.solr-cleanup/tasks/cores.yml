@@ -1,0 +1,51 @@
+---
+
+- name: Solr | Create core directories
+  file:
+    path: "/var/solr/{{ item.name }}"
+    state: directory
+    owner: solr
+    group: solr
+  with_items: "{{ solr_cores }}"
+
+- name: Solr | Create data directories
+  file:
+    path: "/var/solr/{{ item.name }}/data"
+    state: directory
+    owner: solr
+    group: solr
+  with_items: "{{ solr_cores }}"
+
+- name: Solr | Create core.properties
+  template:
+    src: core.properties.j2
+    dest: "/var/solr/{{ item.name }}/core.properties"
+    owner: solr
+    group: solr
+  with_items: "{{ solr_cores }}"
+
+- name: Solr | Download Drupal Solr configuration
+  get_url:
+    url: "https://ftp.drupal.org/files/projects/{{ item.module }}.tar.gz"
+    dest: "/var/solr/{{ item.name }}/{{ item.module }}.tar.gz"
+  with_items: "{{ solr_cores }}"
+
+- name: Solr | Unarchive Drupal Solr configuration
+  unarchive:
+    remote_src: yes
+    src: "/var/solr/{{ item.name }}/{{ item.module }}.tar.gz"
+    dest: "/var/solr/{{ item.name }}/"
+  with_items: "{{ solr_cores }}"
+
+- name: Solr | Copy Drupal Solr conf directory into place
+  command: "cp -r /var/solr/{{ item.name }}/search_api_solr/{{ item.subdir }} /var/solr/{{ item.name }}/conf"
+  with_items: "{{ solr_cores }}"
+
+- name: Solr | Chmod Solr conf directory
+  file:
+    path: "/var/solr/{{ item.name }}/conf"
+    state: directory
+    owner: solr
+    group: solr
+    recurse: yes
+  with_items: "{{ solr_cores }}"
