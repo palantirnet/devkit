@@ -40,7 +40,7 @@
         become: yes
       }
     - {
-        role: geerlingguy.solr-cleanup,
+        role: solr-configuration,
         become: yes
       }
     - { role: apache }
