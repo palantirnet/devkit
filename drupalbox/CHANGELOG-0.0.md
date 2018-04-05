@@ -6,9 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-### Fixed
+- Removed Jetty in favor of Solr's bundled HTTP server
+- Switched to the `geerlingguy.java` and `geerlingguy.solr` Ansible roles
+- Updated serverspec tests for Solr
 
-- Fixed the Jetty9 service
+### Fixed
 
 ## [1.1.0] - 2017-11-09
 

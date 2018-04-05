@@ -1,0 +1,30 @@
+---
+- name: Solr Cleanup | Replace systemd script for Solr 4
+  template:
+    src: solr4.unit.j2
+    dest: /etc/systemd/system/solr.service
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Solr Cleanup | Fix log permissions
+  file:
+    path: /var/log/solr.log
+    owner: solr
+    group: adm
+
+- name: Solr Cleanup | Reload daemon
+  shell: systemctl daemon-reload
+
+- name: Solr Cleanup | Restart Solr
+  service:
+    name: solr
+    state: restarted
+    enabled: no
+
+- name: Solr Cleanup | Enable Solr start on boot
+  service:
+    name: solr
+    enabled: yes
+
+- include: cores.yml
