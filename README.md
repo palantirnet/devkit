@@ -1,6 +1,12 @@
 # Devkit
 
-Devkit is a framework to build Vagrant boxes for our projects' development environments. This framework uses many tools including Packer, Ansible, Atlas, Vagrant, and ServerSpec.
+Devkit is a framework to build Vagrant boxes for our projects' development environments. This framework uses many tools including Packer, Ansible, Vagrant, Vagrant Cloud, and ServerSpec.
+
+Build the current box with:
+
+```
+$> make drupalbox
+```
 
 ## Development Requirements
 

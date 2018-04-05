@@ -4,8 +4,16 @@
 
 ## Updating an existing box
 
-1. Update the box version in the packer template file.
-1. From the repository root run the following command:
+Use the makefile to build the drupalbox:
+
 ```
-$ packer build -var-file=drupalbox/ubuntu.json drupalbox/drupalbox.json
+make drupalbox
 ```
+
+Or, use Packer directly to build the drupalbox:
+
+```
+packer build -var-file=drupalbox/ubuntu.json drupalbox/drupalbox.json
+```
+
+Both of these approaches run the same command, but running packer directly gives you the opportunity to use flags to manipulate the build process. Try `packer --help build` for details.
