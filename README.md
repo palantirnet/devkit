@@ -23,7 +23,9 @@ $> make drupalbox
 
 ## Current Boxes
 
-- palantir/[drupalbox](drupalbox) - [Change Log](drupalbox/CHANGELOG-0.0.md)
+Boxes are released on Vagrant Cloud as [palantir/drupalbox](https://app.vagrantup.com/palantir/boxes/drupalbox).
+
+There is a [drupalbox changelog](drupalbox/CHANGELOG-0.0.md), which is the source of the release notes both here and on Vagrant Cloud.
 
 ## Docs
 

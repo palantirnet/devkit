@@ -8,11 +8,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+### Changed
+
 ## [1.2.0] - 2018-04-06
 
-### Added
+### Changed
 
 - Updated from PHP 7.0 to PHP 7.1
+
+This means that the PHP config files moved from `/etc/php/7.0/` to `/etc/php/7.1/`; if your project has provisioning scripts with this path hard-coded, they will need to be updated. [palantirnet/the-vagrant v2.0.1](https://github.com/palantirnet/the-vagrant/releases/tag/2.0.1) has been released to accommodate this change.
 
 ## [1.1.1] - 2018-04-05
 
@@ -21,9 +25,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed Solr installation
 - Updated tests for Solr
 
-### Removed
+### Changed
 
 - Removed Jetty in favor of Solr's bundled HTTP server
+
+If your project's provisioning relies on the `jetty` or `jetty9` service, this is no longer available. Instead, use the `solr` service.
 
 ## [1.1.0] - 2017-11-09
 
