@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 # Different PHP cli packages should be installed depending on the Ubuntu version.
-describe package("php7.0-cli") do
+describe package("php7.1-cli") do
   it { should be_installed }
 end
 
@@ -12,12 +12,11 @@ end
   intl
   json
   mbstring
-  mcrypt
   sqlite3
   xml
 }.each do |pkg|
   # The PHP extension's package should be installed from apt.
-  describe package("php7.0-#{pkg}") do
+  describe package("php7.1-#{pkg}") do
     it { should be_installed }
   end
 
@@ -27,7 +26,7 @@ end
   end
 end
 
-# The memcached extension uses a package naming pattern.
+# The following extensions use different package naming patterns.
 describe package("php-memcached") do
   it { should be_installed }
 end
@@ -35,8 +34,14 @@ context php_extension("memcached") do
   it { should be_loaded }
 end
 
-# The MySQL extension uses a different name for the package vs. the extension.
-describe package("php7.0-mysql") do
+describe package("php7.1-mcrypt") do
+  it { should be_installed }
+end
+context php_extension("mcrypt") do
+  it { should be_loaded }
+end
+
+describe package("php7.1-mysql") do
   it { should be_installed }
 end
 context php_extension("mysqli") do
@@ -47,10 +52,10 @@ end
 describe package("php-xdebug") do
   it { should be_installed }
 end
-describe file('/etc/php/7.0/fpm/conf.d/20-xdebug.ini') do
+describe file('/etc/php/7.1/fpm/conf.d/20-xdebug.ini') do
     it { should be_symlink }
 end
-describe file('/etc/php/7.0/cli/conf.d/20-xdebug.ini') do
+describe file('/etc/php/7.1/cli/conf.d/20-xdebug.ini') do
     it { should_not exist }
 end
 
