@@ -8,6 +8,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [1.2.0] - 2018-04-06
+
+### Added
+
+- Updated from PHP 7.0 to PHP 7.1
+
 ## [1.1.1] - 2018-04-05
 
 ### Fixed
@@ -106,3 +112,6 @@ The Jetty9 service doesn't run.
 ### Fixed
 
 - Fixed Firefox from being removed during minimize.sh
+
+----
+Copyright 2016, 2017, 2018 Palantir.net, Inc.

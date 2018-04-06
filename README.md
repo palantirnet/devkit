@@ -35,3 +35,6 @@ $> make drupalbox
 ## Support
 
 This project uses the [GitHub issue queue](https://github.com/palantirnet/devkit/issues).
+
+----
+Copyright 2016, 2017, 2018 Palantir.net, Inc.
