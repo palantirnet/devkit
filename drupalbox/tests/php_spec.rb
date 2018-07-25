@@ -34,13 +34,6 @@ context php_extension("memcached") do
   it { should be_loaded }
 end
 
-describe package("php7.2-mcrypt") do
-  it { should be_installed }
-end
-context php_extension("mcrypt") do
-  it { should be_loaded }
-end
-
 describe package("php7.2-mysql") do
   it { should be_installed }
 end
