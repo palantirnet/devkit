@@ -8,6 +8,13 @@ Build the current box with:
 $> make drupalbox
 ```
 
+Test the current box with:
+
+```
+$> cd dev
+$> vagrant up
+```
+
 ## Development Requirements
 
 - Packer 1.2.1
