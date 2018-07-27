@@ -11,3 +11,5 @@ virtualbox:
 
 vmware:
 	$(PACKER) $(PACKER_BUILD) -only=vmware-iso -var-file=drupalbox/ubuntu.json drupalbox/drupalbox.json
+
+drupalbox: virtualbox
