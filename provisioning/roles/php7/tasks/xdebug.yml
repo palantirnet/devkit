@@ -10,7 +10,7 @@
   become: yes
   template:
     src: xdebug.ini.j2
-    dest: /etc/php/7.1/mods-available/xdebug.ini
+    dest: /etc/php/7.2/mods-available/xdebug.ini
   tags: php7
 
 - name: Enable XDebug

@@ -10,6 +10,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Updated from PHP 7.1 to PHP 7.2
+
+This means that the PHP config files moved from `/etc/php/7.1/` to `/etc/php/7.2/`.
+
 ## [1.2.0] - 2018-04-06
 
 ### Changed
