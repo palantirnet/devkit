@@ -10,12 +10,12 @@
   become: yes
   apt: name={{ item }} state=latest
   with_items:
-    - php7.2-cli
-    - php7.2-fpm
-    - libapache2-mod-php7.2
+    - php7.3-cli
+    - php7.3-fpm
+    - libapache2-mod-php7.3
     - php-pear
-    - php7.2-common
-    - php7.2-dev
+    - php7.3-common
+    - php7.3-dev
     - php-console-table
   tags: php7
 
@@ -33,15 +33,15 @@
 
 - name: Enable Apache Module
   become: yes
-  command: /usr/sbin/a2enmod php7.2
+  command: /usr/sbin/a2enmod php7.3
   tags: php7
 
 - name: Update php.ini (cli)
   become: yes
   template: src=php.ini.j2 dest={{ item }} owner=root group=root
   with_items:
-    - /etc/php/7.2/cli/php.ini
-    - /etc/php/7.2/fpm/php.ini
+    - /etc/php/7.3/cli/php.ini
+    - /etc/php/7.3/fpm/php.ini
   tags: php7
 
 - include: pecl.yml
