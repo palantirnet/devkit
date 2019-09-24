@@ -33,9 +33,9 @@
 
 - name: NodeJS | Install NodeJS and Yarn
   become: yes
-  apt: pkg='{{ item }}'
-       state=present
-  with_items:
-    - nodejs
-    - yarn
+  apt:
+    pkg:
+      - nodejs
+      - yarn
+    state: present
   tags: nodejs

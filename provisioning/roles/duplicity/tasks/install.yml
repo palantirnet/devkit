@@ -7,14 +7,16 @@
 
 - name: Duplicity | Update apt cache
   become: yes
-  apt: update-cache=yes
+  apt:
+    update_cache: yes
   tags: duplicity
 
 - name: Duplicity | Install System Packages
   become: yes
-  apt: pkg={{ item }} state=installed
-  with_items:
+  apt:
+    pkg:
       - duplicity
       - duply
       - python-boto
+    state: installed
   tags: duplicity

@@ -4,10 +4,10 @@
 
 ## Updating an existing box
 
-Use the makefile to build both the virtualbox and vmware builds of the drupalbox:
+Use the makefile to build the drupalbox (virtualbox only):
 
 ```
-make all
+make drupalbox
 ```
 
 Use the makefile to build only one of either virtualbox or vmware:
@@ -17,7 +17,9 @@ make virtualbox
 make vmware
 ```
 
-Or, use Packer directly to build the drupalbox:
+_Note: the vmware build is not actively maintained at this time._
+
+You can also use Packer directly to build the drupalbox:
 
 ```
 packer build -var-file=drupalbox/ubuntu.json drupalbox/drupalbox.json

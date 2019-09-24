@@ -2,12 +2,11 @@
 - name: Memcached | Install Memcached
   become: yes
   apt:
-    name: "{{ item }}"
-    state: installed
+    name:
+      - memcached
+      - libmemcached-tools
+    state: present
     update_cache: yes
-  with_items:
-    - memcached
-    - libmemcached-tools
   tags: memcached
 
 - name: Memcached | Configure Memcached
