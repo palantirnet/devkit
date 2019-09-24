@@ -5,3 +5,6 @@
 
 - src: geerlingguy.solr
   version: 4.0.2
+
+- src: rvm.ruby
+  version: v2.1.2
