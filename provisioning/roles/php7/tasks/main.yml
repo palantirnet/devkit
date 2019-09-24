@@ -8,21 +8,23 @@
 
 - name: Install PHP
   become: yes
-  apt: name={{ item }} state=latest
-  with_items:
-    - php7.3-cli
-    - php7.3-fpm
-    - libapache2-mod-php7.3
-    - php-pear
-    - php7.3-common
-    - php7.3-dev
-    - php-console-table
+  apt:
+    name:
+      - php7.3-cli
+      - php7.3-fpm
+      - libapache2-mod-php7.3
+      - php-pear
+      - php7.3-common
+      - php7.3-dev
+      - php-console-table
+    state: latest
   tags: php7
 
 - name: Install PHP Modules
   become: yes
-  apt: name={{ item }} state=latest
-  with_items: "{{ php7_modules }}"
+  apt:
+    name: "{{ php7_modules }}"
+    state: latest
   tags: php7
 
 - name: Enable Modules
