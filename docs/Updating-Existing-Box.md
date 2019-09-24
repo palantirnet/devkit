@@ -32,3 +32,17 @@ Both of these approaches run similar commands, but running packer directly gives
 vagrant login
 packer build -only=virtualbox-iso -var-file=drupalbox/ubuntu.json -var 'cloud_dest=palantir/drupalbox' -var 'cloud_version=999' drupalbox/drupalbox.json
 ```
+
+## Updating Ubuntu
+
+When Ubuntu releases a new point release of 16.04, the packer build will throw this error:
+
+> ==> virtualbox-iso: error downloading ISO: [source path error: stat /path/to/devkit/iso/ubuntu-16.04.4-server-amd64.iso: no such file or directory bad response code: 404]
+
+When this happens, you need to update to the new version:
+
+1. Open `drupalbox/ubuntu.json`
+3. Visit [releases.ubuntu.com/16.04](http://releases.ubuntu.com/16.04/) to find the updated values:
+  * `iso_name`: ubuntu-16.04.*-server-amd64.iso
+  * `iso_url`: http://releases.ubuntu.com/16.04/ubuntu-16.04.*-server-amd64.iso
+  * `iso_checksum`: find this in the [SHA256SUMS](http://releases.ubuntu.com/16.04/SHA256SUMS) file for the current releases
