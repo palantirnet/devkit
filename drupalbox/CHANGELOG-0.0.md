@@ -8,7 +8,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+- Syntax changes for forward compatibility with Ansible 2.9 and 2.11
+- Replaced broken local rvm role to use the [rvm.ruby role from Ansible Galaxy](https://galaxy.ansible.com/rvm/ruby)
+
 ### Changed
+
+- Updated from PHP 7.2 to 7.3
 
 ## [1.3.0] - 2018-07-27
 
