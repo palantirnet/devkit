@@ -1,7 +1,5 @@
 # Devkit
 
-*** We cannot push builds to [Atlas since it does not support](https://github.com/mitchellh/packer/issues/2598) `-var-file`, [even though the documentation says it does](https://www.packer.io/docs/command-line/push.html#_var).
-
 ## Updating an existing box
 
 Use the makefile to build the drupalbox (virtualbox only):
@@ -27,3 +25,10 @@ packer build -only=virtualbox-iso -var-file=drupalbox/ubuntu.json drupalbox/drup
 ```
 
 Both of these approaches run similar commands, but running packer directly gives you the opportunity to use flags to manipulate the build process in a one-off fashion. Try `packer --help build` for details.
+
+## Releasing a box to Vagrant Cloud
+
+```
+vagrant login
+packer build -only=virtualbox-iso -var-file=drupalbox/ubuntu.json -var 'cloud_dest=palantir/drupalbox' -var 'cloud_version=999' drupalbox/drupalbox.json
+```

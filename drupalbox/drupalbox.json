@@ -104,6 +104,12 @@
         "keep_input_artifact": false,
         "output": "drupalbox_{{.Provider}}.box",
         "vagrantfile_template": "drupalbox/Vagrantfile"
+      },
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "{{user `cloud_dest`}}",
+        "version": "{{user `cloud_version`}}",
+        "no_release": true
       }
     ]
   ],
@@ -261,6 +267,8 @@
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": "true"
+    "update": "true",
+    "cloud_dest": "",
+    "cloud_version": "1.0.{{timestamp}}"
   }
 }
