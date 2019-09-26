@@ -269,6 +269,6 @@
     "ssh_username": "vagrant",
     "update": "true",
     "cloud_dest": "",
-    "cloud_version": "1.0.{{timestamp}}"
+    "cloud_version": ""
   }
 }

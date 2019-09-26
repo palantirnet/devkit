@@ -24,13 +24,13 @@ packer build -var-file=drupalbox/ubuntu.json drupalbox/drupalbox.json
 packer build -only=virtualbox-iso -var-file=drupalbox/ubuntu.json drupalbox/drupalbox.json
 ```
 
-Both of these approaches run similar commands, but running packer directly gives you the opportunity to use flags to manipulate the build process in a one-off fashion. Try `packer --help build` for details.
+Both of these approaches run similar commands, but running packer directly gives you the opportunity to use flags to manipulate the build process in a one-off fashion. Try `packer --help build` for details, and see the `Makefile` for this project's standard usage.
 
 ## Releasing a box to Vagrant Cloud
 
 ```
-vagrant login
-packer build -only=virtualbox-iso -var-file=drupalbox/ubuntu.json -var 'cloud_dest=palantir/drupalbox' -var 'cloud_version=999' drupalbox/drupalbox.json
+vagrant cloud auth login
+make vagrant-cloud
 ```
 
 ## Updating Ubuntu
