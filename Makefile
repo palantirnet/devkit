@@ -17,15 +17,23 @@ vmware:
 drupalbox: virtualbox
 
 vagrant-cloud:
-ifeq ($(VERSION),)
+ifeq ($(VAGRANT_CLOUD_TOKEN),)
+	@echo
+	@echo Please set your VAGRANT_CLOUD_TOKEN environment variable:
+	@echo '  1. Log in to Vagrant Cloud at https://app.vagrantup.com'
+	@echo '  2. Create a new authentication token for your account'
+	@echo '  3. Set the environment variable with:'
+	@echo '      export VAGRANT_CLOUD_TOKEN='
+	@echo
+else ifeq ($(VERSION),)
+	@echo
 	@echo
 	@echo This command will release a new version of $(BOX):
 	@echo
 	@vagrant cloud box show $(BOX)
 	@echo
-
 	@echo "Please provied a version number by re-running with this syntax:"
-	@echo "  make vagrant-cloud VERSION=1.2.3"
+	@echo "  make vagrant-cloud VERSION="
 	@echo
 else
 	@echo

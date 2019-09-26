@@ -29,7 +29,6 @@ Both of these approaches run similar commands, but running packer directly gives
 ## Releasing a box to Vagrant Cloud
 
 ```
-vagrant cloud auth login
 make vagrant-cloud
 ```
 
