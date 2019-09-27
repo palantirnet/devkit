@@ -10,6 +10,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Updated from Solr 4.5.1 to Solr 7.7.2
+
 ## [1.4.0] - 2019-09-25
 
 ### Fixed
