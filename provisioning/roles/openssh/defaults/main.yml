@@ -4,7 +4,7 @@ openssh:
         config:
             - { name: password_authentication, value: "no" }
             - { name: permit_root_login, value: "no" }
-            - { name: allow_tcp_forwarding, value: "no" }
+            - { name: allow_tcp_forwarding, value: "yes" }
             - { name: permit_tunnel, value: "no" }
             - { name: authorized_keys_file, value: "%h/.ssh/authorized_keys" }
             - { name: challenge_response_authentication, value: "no" }
