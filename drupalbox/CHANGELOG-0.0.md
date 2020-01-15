@@ -10,6 +10,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+* Enabled TCP forwarding so developers can connect an SQL client to the box
+
 ## [1.4.0] - 2019-09-25
 
 ### Fixed
