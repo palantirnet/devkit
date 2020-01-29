@@ -9,7 +9,7 @@
 
 - name: Solr Cleanup | Fix log permissions
   file:
-    path: /var/log/solr.log
+    path: /var/solr/logs/solr.log
     owner: solr
     group: adm
 
