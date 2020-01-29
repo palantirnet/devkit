@@ -18,5 +18,5 @@
       - duplicity
       - duply
       - python-boto
-    state: installed
+    state: present
   tags: duplicity
