@@ -38,6 +38,7 @@
     - {
         role: geerlingguy.solr,
         solr_version: "7.7.2",
+        solr_cores: ['drupal7', 'drupal8'],
         become: yes
       }
     - {
