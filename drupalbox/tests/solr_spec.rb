@@ -4,10 +4,14 @@ describe file("/opt/solr") do
   it { should be_directory }
 end
 
+describe file("/var/solr/data/drupal8") do
+  it { should be_directory }
+end
+
 describe file("/var/solr/logs/solr.log") do
   it { should be_file }
   it { should be_owned_by 'solr' }
-  it { should be_grouped_into 'adm' }
+  it { should be_grouped_into 'solr' }
 end
 
 describe service('solr') do
