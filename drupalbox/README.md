@@ -18,8 +18,8 @@ Mailhog's smtp service listens on port `1025`, and its http service listens on p
 
 ### Solr
 
-This box runs Solr v4.5.1, to match one of the versions available on [Acquia](https://docs.acquia.com/article/how-test-custom-solr-schema-file-locally).
+This box runs Solr v7.7, to match one of the versions available on [Acquia](https://docs.acquia.com/acquia-search/modules/move-to-solr7/). Note that there is no Solr 7 support for Drupal 7 at this time.
 
-Solr is installed to `/opt/solr` with two default cores, `drupal7` and `drupal8`. Solr runs on port `8983`, and the web UI can be found at `http://yoursite.local:8983/solr`.
+Solr is installed to `/opt/solr` with one default core, `drupal8`. Solr runs on port `8983`, and the web UI can be found at `http://yoursite.local:8983/solr`.
 
 The Solr service runs by default; when you're using [palantirnet/the-vagrant](https://github.com/palantirnet/the-vagrant), this can be managed in the `Vagrantfile`.

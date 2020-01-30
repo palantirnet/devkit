@@ -1,30 +1,13 @@
 ---
-- name: Solr Cleanup | Replace systemd script for Solr 4
-  template:
-    src: solr4.unit.j2
-    dest: /etc/systemd/system/solr.service
-    owner: root
-    group: root
-    mode: 0755
 
-- name: Solr Cleanup | Fix log permissions
-  file:
-    path: /var/solr/logs/solr.log
-    owner: solr
-    group: adm
+- name: Solr Configuration | Copy Solr config
+  copy:
+    src: templates/solr_7.x_config
+    dest: /tmp/
 
-- name: Solr Cleanup | Reload daemon
-  shell: systemctl daemon-reload
-
-- name: Solr Cleanup | Restart Solr
-  service:
-    name: solr
-    state: restarted
-    enabled: no
-
-- name: Solr Cleanup | Enable Solr start on boot
-  service:
-    name: solr
-    enabled: yes
-
-- include: cores.yml
+- name: Solr Configuration | Install 'drupal8' Solr core
+  command:
+    cmd: /opt/solr/bin/solr create_core -c drupal8 -d /tmp/solr_7.x_config
+    creates: /var/solr/data/drupal8
+  become: yes
+  become_user: solr
