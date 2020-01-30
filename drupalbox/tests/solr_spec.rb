@@ -4,7 +4,7 @@ describe file("/opt/solr") do
   it { should be_directory }
 end
 
-describe file("/var/solr/data/drupal8") do
+describe file("/var/solr/data/example") do
   it { should be_directory }
 end
 
@@ -23,6 +23,6 @@ describe port(8983) do
   it { should be_listening }
 end
 
-describe command('curl http://127.0.0.1:8983/solr/admin/info/system?wt=json') do
+describe command('curl http://127.0.0.1:8983/solr/admin/info/system') do
   its(:stdout) { should match /"solr-spec-version":"7\.7\.2"/ }
 end

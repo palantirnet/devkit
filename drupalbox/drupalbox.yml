@@ -34,10 +34,12 @@
         solr_cores: ['example'],
         become: yes
       }
-    - {
-        role: solr-configuration,
-        become: yes
-      }
+    # This role collides with geerlingguy.solr.
+    # We need to reconcile how to install from our preferred config.
+    #- {
+    #    role: solr-configuration,
+    #    become: yes
+    #  }
     - { role: apache }
     - { role: mysql-client }
     - { role: mysql-server }

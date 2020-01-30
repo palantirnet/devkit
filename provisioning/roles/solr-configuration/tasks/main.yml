@@ -5,6 +5,7 @@
     src: templates/solr_7.x_config
     dest: /tmp/
 
+# This command conflicts with geerlingguy.solr and has been removed from the build.
 - name: Solr Configuration | Install 'drupal8' Solr core
   command:
     cmd: /opt/solr/bin/solr create_core -c drupal8 -d /tmp/solr_7.x_config
