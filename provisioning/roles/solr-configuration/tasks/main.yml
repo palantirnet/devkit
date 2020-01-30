@@ -11,3 +11,16 @@
     creates: /var/solr/data/drupal8
   become: yes
   become_user: solr
+
+# Drupal 7 support requires different Lucene configuration.
+- name: Solr Configuration | Copy Solr config
+  copy:
+    src: templates/solr_7.x_config-d7
+    dest: /tmp/
+
+- name: Solr Configuration | Install 'drupal7' Solr core
+  command:
+    cmd: /opt/solr/bin/solr create_core -c drupal7 -d /tmp/solr_7.x_config-d7
+    creates: /var/solr/data/drupal7
+  become: yes
+  become_user: solr
