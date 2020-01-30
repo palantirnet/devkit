@@ -38,7 +38,9 @@
        that you fully re-index after changing this setting as it can
        affect both how text is indexed and queried.
     -->
-  <luceneMatchVersion>${solr.luceneMatchVersion:LUCENE_70}</luceneMatchVersion>
+  <!-- Search API Solr on Drupal 7 only supports lucene 6 -->
+  <!-- luceneMatchVersion>${solr.luceneMatchVersion:LUCENE_70}</luceneMatchVersion -->
+  <luceneMatchVersion>6.0</luceneMatchVersion>
 
   <!-- <lib/> directives can be used to instruct Solr to load any Jars
        identified and use them to resolve any "plugins" specified in
