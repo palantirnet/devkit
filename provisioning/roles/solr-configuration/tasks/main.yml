@@ -2,7 +2,7 @@
 
 - name: Solr Configuration | Copy Solr config
   copy:
-    src: templates
+    src: templates/
     dest: /tmp/
 
 - name: Solr Configuration | Install 'drupal8' Solr core
