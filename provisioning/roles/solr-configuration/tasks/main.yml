@@ -1,5 +1,10 @@
 ---
 
+- name: Solr Configuration | Grant the vagrant user access to Solr configs
+  user:
+    name: vagrant
+    groups: solr
+
 - name: Solr Configuration | Copy Solr config
   copy:
     src: templates/
