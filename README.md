@@ -5,14 +5,14 @@ Devkit is a framework to build Vagrant boxes for our projects' development envir
 Build the current box with:
 
 ```
-$> make drupalbox
+make drupalbox
 ```
 
 Test the current box with:
 
 ```
-$> cd dev
-$> vagrant up
+cd dev
+vagrant up
 ```
 
 ## Development Requirements
