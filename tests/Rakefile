@@ -1,6 +1,12 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = '/tmp/tests/specs/*_spec.rb'
+RSpec::Core::RakeTask.new(:spec, :spec_pattern) do |t, task_args|
+  if task_args[:spec_pattern].nil? || task_args[:spec_pattern].empty?
+    print "  Missing spec file pattern. Run with:\r\n"
+    print "    bundle exec rake spec[/path/to/*_spec.rb]\r\n"
+    exit
+  end
+
+  t.pattern = task_args[:spec_pattern]
 end
