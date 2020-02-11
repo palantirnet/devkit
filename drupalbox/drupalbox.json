@@ -200,9 +200,14 @@
       "inventory_groups": "drupalbox,all"
     },
     {
+        "type": "shell",
+        "inline": ["reboot"]
+    },
+    {
         "type": "file",
         "source": "tests",
-        "destination": "/tmp"
+        "destination": "/tmp",
+        "pause_before": "60s"
     },
     {
         "type": "file",
