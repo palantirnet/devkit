@@ -200,8 +200,10 @@
       "inventory_groups": "drupalbox,all"
     },
     {
-        "type": "shell",
-        "inline": ["reboot"]
+      "type": "shell",
+      "script": "script/reboot.sh",
+      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "expect_disconnect": true
     },
     {
         "type": "file",
