@@ -1,6 +1,14 @@
 #!/bin/bash
-export PATH="$PATH:/home/vagrant/.rvm/rubies/ruby-2.3.1/bin"
-gem install bundler --no-ri --no-rdoc
-cd /tmp/tests
+# This script is run during the Packer build process.
+
+# Wherever the tests are expected to live.
+tests_path="/tmp/tests"
+specs_path="/tmp/tests/specs/*_spec.rb"
+
+# Load rvm into this session
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Run serverspec
+cd "$tests_path"
 bundle install --path=vendor
-bundle exec rake spec
+bundle exec rake spec["$specs_path"]
