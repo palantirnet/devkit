@@ -32,6 +32,7 @@
         role: geerlingguy.solr,
         solr_version: "7.7.2",
         solr_cores: ['example'],
+        solr_user: vagrant,
         become: yes
       }
     - {

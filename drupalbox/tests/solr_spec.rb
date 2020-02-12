@@ -18,8 +18,8 @@ end
 
 describe file("/var/solr/logs/solr.log") do
   it { should be_file }
-  it { should be_owned_by 'solr' }
-  it { should be_grouped_into 'solr' }
+  it { should be_owned_by 'vagrant' }
+  it { should be_grouped_into 'vagrant' }
 end
 
 describe service('solr') do

@@ -1,10 +1,5 @@
 ---
 
-- name: Solr Configuration | Grant the vagrant user access to Solr configs
-  user:
-    name: vagrant
-    groups: solr
-
 - name: Solr Configuration | Copy Solr config
   copy:
     src: templates/
@@ -15,7 +10,7 @@
     cmd: /opt/solr/bin/solr create_core -c drupal8 -d /tmp/solr_7.x_config-drupal8
     creates: /var/solr/data/drupal8
   become: yes
-  become_user: solr
+  become_user: vagrant
 
 # Drupal 7 support requires different Lucene configuration.
 - name: Solr Configuration | Install 'drupal7' Solr core
@@ -23,4 +18,4 @@
     cmd: /opt/solr/bin/solr create_core -c drupal7 -d /tmp/solr_7.x_config-drupal7
     creates: /var/solr/data/drupal7
   become: yes
-  become_user: solr
+  become_user: vagrant
