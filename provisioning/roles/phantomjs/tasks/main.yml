@@ -6,11 +6,11 @@
        update-cache=yes
   tags: phantomjs
 
-- name: PhantonJS | Install fontconfig
+- name: PhantomJS | Install fontconfig
   become: yes
   apt: pkg=fontconfig
        state=present
-  tags: phantonjs
+  tags: phantomjs
 
 - name: PhantomJS | Create home directory
   become: yes
