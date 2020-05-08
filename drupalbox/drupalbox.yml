@@ -52,5 +52,4 @@
     - { role: phpmyadmin }
     - { role: nodejs }
     - { role: phantomjs }
-    - { role: duplicity }
     - { role: drupalbox }
