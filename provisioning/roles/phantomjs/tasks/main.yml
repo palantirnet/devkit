@@ -2,15 +2,15 @@
 - name: PhantomJS | Install firefox
   become: yes
   apt: pkg=iceweasel
-       state=installed
+       state=present
        update-cache=yes
   tags: phantomjs
 
-- name: PhantonJS | Install fontconfig
+- name: PhantomJS | Install fontconfig
   become: yes
   apt: pkg=fontconfig
-       state=installed
-  tags: phantonjs
+       state=present
+  tags: phantomjs
 
 - name: PhantomJS | Create home directory
   become: yes

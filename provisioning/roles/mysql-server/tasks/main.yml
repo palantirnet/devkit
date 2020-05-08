@@ -1,7 +1,7 @@
 ---
 - name: MySQL | Install Server
   become: yes
-  apt: pkg=mysql-server state=installed
+  apt: pkg=mysql-server state=present
   tags: mysql-server
 
 - name: MySQL | Update my.cnf
